@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6943CBFA1AAF82C800D32AD4 /* ad-250x500.png in Resources */ = {isa = PBXBuildFile; fileRef = 6943CBF91AAF82C800D32AD4 /* ad-250x500.png */; };
 		69EDB68E1AAE8A8C002D7B48 /* iphonesongw.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69EDB68D1AAE8A8C002D7B48 /* iphonesongw.wav */; };
 		69EDB6901AAE8B09002D7B48 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EDB68F1AAE8B09002D7B48 /* AudioToolbox.framework */; };
 		69EDB6921AAE9751002D7B48 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 69EDB6911AAE9751002D7B48 /* cat.png */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6943CBF91AAF82C800D32AD4 /* ad-250x500.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ad-250x500.png"; sourceTree = "<group>"; };
 		69EDB68D1AAE8A8C002D7B48 /* iphonesongw.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = iphonesongw.wav; sourceTree = "<group>"; };
 		69EDB68F1AAE8B09002D7B48 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		69EDB6911AAE9751002D7B48 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				69EDB68D1AAE8A8C002D7B48 /* iphonesongw.wav */,
+				6943CBF91AAF82C800D32AD4 /* ad-250x500.png */,
 				69EDB6911AAE9751002D7B48 /* cat.png */,
 				C0480D911A399F8E008E5C2F /* AppDelegate.swift */,
 				C0480D931A399F8E008E5C2F /* ViewController.swift */,
@@ -208,6 +211,7 @@
 				C0480D971A399F8E008E5C2F /* Main.storyboard in Resources */,
 				C0480D9C1A399F8E008E5C2F /* LaunchScreen.xib in Resources */,
 				C0480D991A399F8E008E5C2F /* Images.xcassets in Resources */,
+				6943CBFA1AAF82C800D32AD4 /* ad-250x500.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -91,7 +91,7 @@
                                 </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGV-t4-pWV">
-                                <rect key="frame" x="40" y="20" width="240" height="500"/>
+                                <rect key="frame" x="37" y="20" width="250" height="500"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -120,6 +120,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="OnOffLabel" destination="MEM-iM-FC3" id="49e-uK-LwO"/>
                         <outlet property="OnOffSwitch" destination="cNt-Mh-HG6" id="ftL-MQ-JVl"/>
                         <outlet property="adImage" destination="zGV-t4-pWV" id="acF-Q4-9xz"/>
                         <outlet property="btnAction" destination="8Yy-hz-Dwv" id="knP-hp-dYi"/>

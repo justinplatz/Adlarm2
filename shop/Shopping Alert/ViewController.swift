@@ -23,6 +23,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var adImage: UIImageView!
     
+    @IBOutlet weak var OnOffLabel: UILabel!
+    
     var alarmPlayer = AVAudioPlayer()
     
     var shoppingList: NSMutableArray!
@@ -31,16 +33,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adImage.image =  UIImage(named:("cat"))
+        adImage.image =  UIImage(named:("ad-250x500"))
         adImage.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         
-        var alarmSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("iphonesongw", ofType: "wav")!)
-        println(alarmSound)
-        
-        var error:NSError?
-        alarmPlayer = AVAudioPlayer(contentsOfURL: alarmSound, error: &error)
-        alarmPlayer.prepareToPlay()
+        //alarmPlayer.prepareToPlay()
         
         self.tblShoppingList.delegate = self
         self.tblShoppingList.dataSource = self
@@ -92,18 +89,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func handleSnooze(){
         println("snooze is being handled")
         
+        var alarmSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("iphonesongw", ofType: "wav")!)
+        println(alarmSound)
+        
+        var error:NSError?
+        alarmPlayer = AVAudioPlayer(contentsOfURL: alarmSound, error: &error)
+        
+        txtAddItem.hidden = true
+        tblShoppingList.hidden = true
+        btnAction.hidden = true
+        OnOffSwitch.hidden = true
+        OnOffLabel.hidden = true
         adImage.hidden = false
+        
         alarmPlayer.play()
+        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("handleSnoozeHelper"), userInfo: nil, repeats: false)
+        
+    }
+    
+    func handleSnoozeHelper(){
+        
+        println("seting next snooze")
+        alarmPlayer.stop()
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         var localNotification = UILocalNotification()
         localNotification.soundName = UILocalNotificationDefaultSoundName
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 300)
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 60)
         localNotification.alertBody = "Hey, Wake Up!"
         localNotification.alertAction = "Let Me Snooze Again!"
         
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-
+        
+        adImage.hidden = true
+        txtAddItem.hidden = false
+        tblShoppingList.hidden = false
+        btnAction.hidden = false
+        OnOffSwitch.hidden = false
+        OnOffLabel.hidden = false
     }
     
     func setupNotificationSettings() {
@@ -164,7 +188,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         localNotification.alertBody = "Hey, Wake Up!"
         localNotification.alertAction = "Let Me Sleep!"
         localNotification.hasAction = true
-        localNotification.alertLaunchImage = "cat.png"
         //localNotification.category = "shoppingListReminderCategory"
         
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
