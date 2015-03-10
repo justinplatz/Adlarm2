@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var adImage: UIImageView!
     
-    //var alarmPlayer = AVAudioPlayer()
+    var alarmPlayer = AVAudioPlayer()
     
     var shoppingList: NSMutableArray!
     
@@ -35,12 +35,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         adImage.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         
-        /*var alarmSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("iphonesongw", ofType: "wav")!)
+        var alarmSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("iphonesongw", ofType: "wav")!)
         println(alarmSound)
         
         var error:NSError?
         alarmPlayer = AVAudioPlayer(contentsOfURL: alarmSound, error: &error)
-        alarmPlayer.prepareToPlay()*/
+        alarmPlayer.prepareToPlay()
         
         self.tblShoppingList.delegate = self
         self.tblShoppingList.dataSource = self
@@ -93,6 +93,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         println("snooze is being handled")
         
         adImage.hidden = false
+        alarmPlayer.play()
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         var localNotification = UILocalNotification()
