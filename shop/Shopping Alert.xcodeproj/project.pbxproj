@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		69EDB68E1AAE8A8C002D7B48 /* iphonesongw.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69EDB68D1AAE8A8C002D7B48 /* iphonesongw.wav */; };
+		69EDB6901AAE8B09002D7B48 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69EDB68F1AAE8B09002D7B48 /* AudioToolbox.framework */; };
+		69EDB6921AAE9751002D7B48 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 69EDB6911AAE9751002D7B48 /* cat.png */; };
 		C0480D921A399F8E008E5C2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0480D911A399F8E008E5C2F /* AppDelegate.swift */; };
 		C0480D941A399F8E008E5C2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0480D931A399F8E008E5C2F /* ViewController.swift */; };
 		C0480D971A399F8E008E5C2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0480D951A399F8E008E5C2F /* Main.storyboard */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		69EDB68D1AAE8A8C002D7B48 /* iphonesongw.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = iphonesongw.wav; sourceTree = "<group>"; };
+		69EDB68F1AAE8B09002D7B48 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		69EDB6911AAE9751002D7B48 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
 		C0480D8C1A399F8E008E5C2F /* Shopping Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0480D901A399F8E008E5C2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0480D911A399F8E008E5C2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69EDB6901AAE8B09002D7B48 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +66,7 @@
 		C0480D831A399F8D008E5C2F = {
 			isa = PBXGroup;
 			children = (
+				69EDB68F1AAE8B09002D7B48 /* AudioToolbox.framework */,
 				C0480D8E1A399F8E008E5C2F /* Shopping Alert */,
 				C0480DA41A399F8E008E5C2F /* Shopping AlertTests */,
 				C0480D8D1A399F8E008E5C2F /* Products */,
@@ -80,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				69EDB68D1AAE8A8C002D7B48 /* iphonesongw.wav */,
+				69EDB6911AAE9751002D7B48 /* cat.png */,
 				C0480D911A399F8E008E5C2F /* AppDelegate.swift */,
 				C0480D931A399F8E008E5C2F /* ViewController.swift */,
 				C0480D951A399F8E008E5C2F /* Main.storyboard */,
@@ -164,6 +171,7 @@
 				TargetAttributes = {
 					C0480D8B1A399F8E008E5C2F = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = SK2M5NR735;
 					};
 					C0480DA01A399F8E008E5C2F = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -195,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69EDB6921AAE9751002D7B48 /* cat.png in Resources */,
 				69EDB68E1AAE8A8C002D7B48 /* iphonesongw.wav in Resources */,
 				C0480D971A399F8E008E5C2F /* Main.storyboard in Resources */,
 				C0480D9C1A399F8E008E5C2F /* LaunchScreen.xib in Resources */,

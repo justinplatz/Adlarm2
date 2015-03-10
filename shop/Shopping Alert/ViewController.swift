@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
@@ -21,6 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var OnOffSwitch: UISwitch!
 
     
+    var alarmPlayer = AVAudioPlayer()
     
     var shoppingList: NSMutableArray!
     
@@ -28,6 +30,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        var alarmSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("iphonesongw", ofType: "wav")!)
+        println(alarmSound)
+        
+        var error:NSError?
+        alarmPlayer = AVAudioPlayer(contentsOfURL: alarmSound, error: &error)
+        alarmPlayer.prepareToPlay()
         
         self.tblShoppingList.delegate = self
         self.tblShoppingList.dataSource = self
@@ -42,8 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setupNotificationSettings()
         
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleModifyListNotification", name: "modifyListNotification", object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleDeleteListNotification", name: "deleteListNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleSnooze", name: "snoozeNotification", object: nil)
         
         btnAction.backgroundColor = UIColor.clearColor()
         btnAction.layer.cornerRadius = 5
@@ -77,7 +85,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         txtAddItem.enabled = !txtAddItem.enabled
     }
     
-    
+    func handleSnooze(){
+        println("snooze is being handled")
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        var localNotification = UILocalNotification()
+        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 300)
+        localNotification.alertBody = "Hey, Wake Up!"
+        localNotification.alertAction = "Let Me Snooze Again!"
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+
+    }
     
     func setupNotificationSettings() {
         let notificationSettings: UIUserNotificationSettings! = UIApplication.sharedApplication().currentUserNotificationSettings()
@@ -95,12 +114,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             justInformAction.destructive = false
             justInformAction.authenticationRequired = false*/
             
-            var modifyListAction = UIMutableUserNotificationAction()
+            /*var modifyListAction = UIMutableUserNotificationAction()
             modifyListAction.identifier = "editList"
             modifyListAction.title = "Edit list"
             modifyListAction.activationMode = UIUserNotificationActivationMode.Foreground
             modifyListAction.destructive = false
-            modifyListAction.authenticationRequired = true
+            modifyListAction.authenticationRequired = true*/
             
             /*var trashAction = UIMutableUserNotificationAction()
             trashAction.identifier = "trashAction"
@@ -109,22 +128,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             trashAction.destructive = true
             trashAction.authenticationRequired = true*/
             
-            let actionsArray = NSArray(objects: modifyListAction)
-            let actionsArrayMinimal = NSArray(objects: modifyListAction)
+            /*let actionsArray = NSArray(objects: modifyListAction)
+            let actionsArrayMinimal = NSArray(objects: modifyListAction)*/
             
             // Specify the category related to the above actions.
-            var shoppingListReminderCategory = UIMutableUserNotificationCategory()
+            /*var shoppingListReminderCategory = UIMutableUserNotificationCategory()
             shoppingListReminderCategory.identifier = "shoppingListReminderCategory"
             shoppingListReminderCategory.setActions(actionsArray, forContext: UIUserNotificationActionContext.Default)
-            shoppingListReminderCategory.setActions(actionsArrayMinimal, forContext: UIUserNotificationActionContext.Minimal)
+            shoppingListReminderCategory.setActions(actionsArrayMinimal, forContext: UIUserNotificationActionContext.Minimal)*/
             
             
-            let categoriesForSettings = NSSet(objects: shoppingListReminderCategory)
+            //let categoriesForSettings = NSSet(objects: shoppingListReminderCategory)
             
             
             // Register the notification settings.
-            let newNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: categoriesForSettings)
-            UIApplication.sharedApplication().registerUserNotificationSettings(newNotificationSettings)
+            //let newNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: categoriesForSettings)
+            //UIApplication.sharedApplication().registerUserNotificationSettings(newNotificationSettings)
         }
     }
     
@@ -132,12 +151,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func scheduleLocalNotification() {
         var localNotification = UILocalNotification()
         localNotification.soundName = UILocalNotificationDefaultSoundName
-        localNotification.repeatInterval = NSCalendarUnit.CalendarUnitMinute
+        //localNotification.repeatInterval = NSCalendarUnit.CalendarUnitMinute
         localNotification.fireDate = fixNotificationDate(datePicker.date)
         localNotification.alertBody = "Hey, Wake Up!"
-        localNotification.alertAction = "View List"
-        
-        localNotification.category = "shoppingListReminderCategory"
+        localNotification.alertAction = "Let Me Sleep!"
+        localNotification.hasAction = true
+        localNotification.alertLaunchImage = "cat.png"
+        //localNotification.category = "shoppingListReminderCategory"
         
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
