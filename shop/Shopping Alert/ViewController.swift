@@ -104,7 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             var trashAction = UIMutableUserNotificationAction()
             trashAction.identifier = "trashAction"
-            trashAction.title = "Delete list"
+            trashAction.title = "Delete list?"
             trashAction.activationMode = UIUserNotificationActivationMode.Background
             trashAction.destructive = true
             trashAction.authenticationRequired = true

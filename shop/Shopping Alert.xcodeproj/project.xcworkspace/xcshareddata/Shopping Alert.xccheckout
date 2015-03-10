@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>22E3C592-CA5A-4DCB-BF30-DAAC35E10DCC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Shopping Alert</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5DB4DED2666367AE9D8A9C164C9CC671DFE9D78E</key>
+		<string>https://github.com/justinplatz/Adlarm2.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>shop/Shopping Alert.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5DB4DED2666367AE9D8A9C164C9CC671DFE9D78E</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/justinplatz/Adlarm2.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5DB4DED2666367AE9D8A9C164C9CC671DFE9D78E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5DB4DED2666367AE9D8A9C164C9CC671DFE9D78E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Adlarm2</string>
+		</dict>
+	</array>
+</dict>
+</plist>
