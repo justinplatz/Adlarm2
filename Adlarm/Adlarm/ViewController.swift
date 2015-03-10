@@ -73,14 +73,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func scheduleReminder(sender: AnyObject) {
         if datePicker.hidden {
+            datePicker.minimumDate = NSDate(timeIntervalSinceNow: 60)
             animateMyViews(tblShoppingList, viewToShow: datePicker)
             
             UIApplication.sharedApplication().cancelAllLocalNotifications()
         }
         else{
             animateMyViews(datePicker, viewToShow: tblShoppingList)
-            
-            scheduleLocalNotification()
+            if(NSDate().compare(datePicker.date) != NSComparisonResult.OrderedDescending){
+                scheduleLocalNotification()
+            }
         }
         
         txtAddItem.enabled = !txtAddItem.enabled
@@ -116,7 +118,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         var localNotification = UILocalNotification()
         localNotification.soundName = UILocalNotificationDefaultSoundName
-        localNotification.fireDate = NSDate(timeIntervalSinceNow: 60)
+        localNotification.fireDate = fixNotificationDate(NSDate(timeIntervalSinceNow: 60))
         localNotification.alertBody = "Hey, Wake Up!"
         localNotification.alertAction = "Let Me Snooze Again!"
         
@@ -341,7 +343,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         }
         else{
-            scheduleLocalNotification()
+            println(NSDate())
+            println(datePicker.date)
+            if(NSDate().compare(datePicker.date) != NSComparisonResult.OrderedDescending){
+                scheduleLocalNotification()
+            }
         }
     }
     
