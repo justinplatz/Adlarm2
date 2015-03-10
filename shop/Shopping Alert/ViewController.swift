@@ -88,12 +88,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             
             // Specify the notification actions.
-            var justInformAction = UIMutableUserNotificationAction()
+            /*var justInformAction = UIMutableUserNotificationAction()
             justInformAction.identifier = "justInform"
             justInformAction.title = "OK, got it"
             justInformAction.activationMode = UIUserNotificationActivationMode.Background
             justInformAction.destructive = false
-            justInformAction.authenticationRequired = false
+            justInformAction.authenticationRequired = false*/
             
             var modifyListAction = UIMutableUserNotificationAction()
             modifyListAction.identifier = "editList"
@@ -102,15 +102,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             modifyListAction.destructive = false
             modifyListAction.authenticationRequired = true
             
-            var trashAction = UIMutableUserNotificationAction()
+            /*var trashAction = UIMutableUserNotificationAction()
             trashAction.identifier = "trashAction"
             trashAction.title = "Delete list?"
             trashAction.activationMode = UIUserNotificationActivationMode.Background
             trashAction.destructive = true
-            trashAction.authenticationRequired = true
+            trashAction.authenticationRequired = true*/
             
-            let actionsArray = NSArray(objects: justInformAction, modifyListAction, trashAction)
-            let actionsArrayMinimal = NSArray(objects: trashAction, modifyListAction)
+            let actionsArray = NSArray(objects: modifyListAction)
+            let actionsArrayMinimal = NSArray(objects: modifyListAction)
             
             // Specify the category related to the above actions.
             var shoppingListReminderCategory = UIMutableUserNotificationCategory()
@@ -242,7 +242,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("idCellItem") as UITableViewCell
         
-        cell.textLabel?.text = shoppingList.objectAtIndex(indexPath.row) as NSString
+        cell.textLabel.text = shoppingList.objectAtIndex(indexPath.row) as NSString
         
         return cell
     }

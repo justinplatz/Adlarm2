@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		69EDB68E1AAE8A8C002D7B48 /* iphonesongw.wav in Resources */ = {isa = PBXBuildFile; fileRef = 69EDB68D1AAE8A8C002D7B48 /* iphonesongw.wav */; };
 		C0480D921A399F8E008E5C2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0480D911A399F8E008E5C2F /* AppDelegate.swift */; };
 		C0480D941A399F8E008E5C2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0480D931A399F8E008E5C2F /* ViewController.swift */; };
 		C0480D971A399F8E008E5C2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0480D951A399F8E008E5C2F /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		69EDB68D1AAE8A8C002D7B48 /* iphonesongw.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = iphonesongw.wav; sourceTree = "<group>"; };
 		C0480D8C1A399F8E008E5C2F /* Shopping Alert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Alert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0480D901A399F8E008E5C2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0480D911A399F8E008E5C2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		C0480D8E1A399F8E008E5C2F /* Shopping Alert */ = {
 			isa = PBXGroup;
 			children = (
+				69EDB68D1AAE8A8C002D7B48 /* iphonesongw.wav */,
 				C0480D911A399F8E008E5C2F /* AppDelegate.swift */,
 				C0480D931A399F8E008E5C2F /* ViewController.swift */,
 				C0480D951A399F8E008E5C2F /* Main.storyboard */,
@@ -192,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69EDB68E1AAE8A8C002D7B48 /* iphonesongw.wav in Resources */,
 				C0480D971A399F8E008E5C2F /* Main.storyboard in Resources */,
 				C0480D9C1A399F8E008E5C2F /* LaunchScreen.xib in Resources */,
 				C0480D991A399F8E008E5C2F /* Images.xcassets in Resources */,
@@ -405,6 +409,7 @@
 				C0480DAD1A399F8E008E5C2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C0480DAE1A399F8E008E5C2F /* Build configuration list for PBXNativeTarget "Shopping AlertTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				C0480DB01A399F8E008E5C2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
