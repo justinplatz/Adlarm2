@@ -53,8 +53,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         setupNotificationSettings()
         
+        if(OnOffSwitch.on){//so next localnotification does not get set when alarm is off
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleSnooze", name: "snoozeNotification", object: nil)
+        }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleSnooze", name: "snoozeNotification", object: nil)
+        
         
         btnAction.backgroundColor = UIColor.clearColor()
         btnAction.layer.cornerRadius = 5
