@@ -9,11 +9,11 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var txtAddItem: UITextField!
+    //@IBOutlet weak var txtAddItem: UITextField!
     
-    @IBOutlet weak var tblShoppingList: UITableView!
+   // @IBOutlet weak var tblShoppingList: UITableView!
     
     @IBOutlet weak var btnAction: UIButton!
     
@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var adImage: UIImageView!
     
     @IBOutlet weak var OnOffLabel: UILabel!
+    
+    @IBOutlet weak var ShowTime: UILabel!
     
     var alarmPlayer = AVAudioPlayer()
     
@@ -39,15 +41,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         //alarmPlayer.prepareToPlay()
         
-        self.tblShoppingList.delegate = self
-        self.tblShoppingList.dataSource = self
+        //self.tblShoppingList.delegate = self
+        //self.tblShoppingList.dataSource = self
         
-        self.txtAddItem.delegate = self
+        //self.txtAddItem.delegate = self
         
         datePicker.hidden = true
         
         
-        loadShoppingList()
+        //loadShoppingList()
         
         setupNotificationSettings()
         
@@ -74,18 +76,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func scheduleReminder(sender: AnyObject) {
         if datePicker.hidden {
             datePicker.minimumDate = NSDate(timeIntervalSinceNow: 60)
-            animateMyViews(tblShoppingList, viewToShow: datePicker)
+            //animateMyViews(tblShoppingList, viewToShow: datePicker)
+            
+            
+            datePicker.hidden = false
             
             UIApplication.sharedApplication().cancelAllLocalNotifications()
         }
         else{
-            animateMyViews(datePicker, viewToShow: tblShoppingList)
+            //animateMyViews(datePicker, viewToShow: tblShoppingList)
+            datePicker.hidden = true
             if(NSDate().compare(datePicker.date) != NSComparisonResult.OrderedDescending){
                 scheduleLocalNotification()
+                var dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "hh:mm" //format style. Browse online to get a format that fits your needs.
+                var dateString = dateFormatter.stringFromDate(datePicker.date)
+                
+                ShowTime.text = dateString
             }
         }
         
-        txtAddItem.enabled = !txtAddItem.enabled
+        //txtAddItem.enabled = !txtAddItem.enabled
     }
     
     func handleSnooze(){
@@ -97,8 +108,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var error:NSError?
         alarmPlayer = AVAudioPlayer(contentsOfURL: alarmSound, error: &error)
         
-        txtAddItem.hidden = true
-        tblShoppingList.hidden = true
+        //txtAddItem.hidden = true
+        //tblShoppingList.hidden = true
         btnAction.hidden = true
         OnOffSwitch.hidden = true
         OnOffLabel.hidden = true
@@ -117,7 +128,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         var localNotification = UILocalNotification()
-        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.soundName = "iphonesong.caf"
         localNotification.fireDate = fixNotificationDate(NSDate(timeIntervalSinceNow: 60))
         localNotification.alertBody = "Hey, Wake Up!"
         localNotification.alertAction = "Let Me Snooze Again!"
@@ -125,8 +136,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
         adImage.hidden = true
-        txtAddItem.hidden = false
-        tblShoppingList.hidden = false
+        //txtAddItem.hidden = false
+        //tblShoppingList.hidden = false
         btnAction.hidden = false
         OnOffSwitch.hidden = false
         OnOffLabel.hidden = false
@@ -184,11 +195,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func scheduleLocalNotification() {
         var localNotification = UILocalNotification()
-        localNotification.soundName = UILocalNotificationDefaultSoundName
+        localNotification.soundName = "iphonesong.caf"
         //localNotification.repeatInterval = NSCalendarUnit.CalendarUnitMinute
         localNotification.fireDate = fixNotificationDate(datePicker.date)
         localNotification.alertBody = "Hey, Wake Up!"
-        localNotification.alertAction = "Let Me Sleep!"
+        localNotification.alertAction = "Snooze"
         localNotification.hasAction = true
         //localNotification.category = "shoppingListReminderCategory"
         
@@ -207,51 +218,51 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    func handleModifyListNotification() {
-        txtAddItem.becomeFirstResponder()
-    }
+    //func handleModifyListNotification() {
+        //txtAddItem.becomeFirstResponder()
+    //}
     
     
-    func handleDeleteListNotification() {
-        shoppingList.removeAllObjects()
-        saveShoppingList()
-        tblShoppingList.reloadData()
-    }
+    //func handleDeleteListNotification() {
+        //shoppingList.removeAllObjects()
+        //saveShoppingList()
+        //tblShoppingList.reloadData()
+    //}
     
     
     // MARK: Method implementation
     
-    func removeItemAtIndex(index: Int) {
-        shoppingList.removeObjectAtIndex(index)
+    //func removeItemAtIndex(index: Int) {
+        //shoppingList.removeObjectAtIndex(index)
         
-        tblShoppingList.reloadData()
+        //tblShoppingList.reloadData()
         
-        saveShoppingList()
-    }
+        //saveShoppingList()
+    //}
     
     
     
-    func saveShoppingList() {
-        let pathsArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        let documentsDirectory = pathsArray[0] as String
-        let savePath = documentsDirectory.stringByAppendingPathComponent("shopping_list")
-        shoppingList.writeToFile(savePath, atomically: true)
-    }
+    //func saveShoppingList() {
+        //let pathsArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        //let documentsDirectory = pathsArray[0] as String
+        //let savePath = documentsDirectory.stringByAppendingPathComponent("shopping_list")
+        //shoppingList.writeToFile(savePath, atomically: true)
+    //}
     
     
-    func loadShoppingList() {
-        let pathsArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        let documentsDirectory = pathsArray[0] as String
-        let shoppingListPath = documentsDirectory.stringByAppendingPathComponent("shopping_list")
+    //func loadShoppingList() {
+    //    let pathsArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+   //     let documentsDirectory = pathsArray[0] as String
+   //     let shoppingListPath = documentsDirectory.stringByAppendingPathComponent("shopping_list")
         
-        if NSFileManager.defaultManager().fileExistsAtPath(shoppingListPath){
-            shoppingList = NSMutableArray(contentsOfFile: shoppingListPath)
-            tblShoppingList.reloadData()
-        }
-    }
+     //   if NSFileManager.defaultManager().fileExistsAtPath(shoppingListPath){
+       //     shoppingList = NSMutableArray(contentsOfFile: shoppingListPath)
+         //   tblShoppingList.reloadData()
+        //}
+    //}
     
     
-    func animateMyViews(viewToHide: UIView, viewToShow: UIView) {
+    /* func animateMyViews(viewToHide: UIView, viewToShow: UIView) {
         let animationDuration = 0.35
         
         UIView.animateWithDuration(animationDuration, animations: { () -> Void in
@@ -267,7 +278,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     viewToShow.transform = CGAffineTransformIdentity
                 })
         }
-    }
+    } */
     
     
     
@@ -276,7 +287,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: UITableView method implementation
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    /* func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
@@ -295,7 +306,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("idCellItem") as UITableViewCell
         
-        cell.textLabel.text = shoppingList.objectAtIndex(indexPath.row) as NSString
+        cell.textLabel!.text = shoppingList.objectAtIndex(indexPath.row) as NSString
         
         return cell
     }
@@ -311,13 +322,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             removeItemAtIndex(indexPath.row)
         }
         
-    }
+    } */
     
     
     
     // MARK: UITextFieldDelegate method implementation
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    /* func textFieldShouldReturn(textField: UITextField) -> Bool {
         if shoppingList == nil{
             shoppingList = NSMutableArray()
         }
@@ -331,23 +342,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         saveShoppingList()
         
         return true
-    }
+    } */
     
     
     
     @IBAction func AlarmToggle(sender: AnyObject) {
         
         if(OnOffSwitch.on == false){
-            println("Switch is off")
+            OnOffLabel.text = "Alarm is Off"
             UIApplication.sharedApplication().cancelAllLocalNotifications()
             
         }
         else{
-            println(NSDate())
-            println(datePicker.date)
             if(NSDate().compare(datePicker.date) != NSComparisonResult.OrderedDescending){
                 scheduleLocalNotification()
             }
+            OnOffLabel.text = "Alarm is On"
         }
     }
     
@@ -355,7 +365,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     // MARK: - Table view delegate
-    
+    /*
     func colorForIndex(index: Int) -> UIColor {
         let itemCount = shoppingList.count - 1
         let val = (CGFloat(index) / CGFloat(itemCount)) * 0.6
@@ -365,7 +375,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
         forRowAtIndexPath indexPath: NSIndexPath) {
             cell.backgroundColor = colorForIndex(indexPath.row)
-    }
+    } */
     
     
     
