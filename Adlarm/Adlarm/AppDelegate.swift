@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
         }
+        
+        UIViewController.prepareInterstitialAds()
+        
         return true
     }
     
@@ -77,6 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         completionHandler()
     }
+    
+    
+    
     
 }
 

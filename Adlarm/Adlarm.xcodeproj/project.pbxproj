@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091A9C771AB0CD30007760AD /* adlarmicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 091A9C761AB0CD30007760AD /* adlarmicon.png */; };
+		09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */; };
+		09B5B2411ABA1FA6004158E0 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B5B2401ABA1FA6004158E0 /* iAd.framework */; };
+		09DB9CD31AAFAF00003425BB /* iphonesong.caf in Resources */ = {isa = PBXBuildFile; fileRef = 09DB9CD21AAFAF00003425BB /* iphonesong.caf */; };
 		6943CC0A1AAF896900D32AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943CC091AAF896900D32AD4 /* AppDelegate.swift */; };
 		6943CC0C1AAF896900D32AD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943CC0B1AAF896900D32AD4 /* ViewController.swift */; };
 		6943CC111AAF896900D32AD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6943CC101AAF896900D32AD4 /* Images.xcassets */; };
@@ -29,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		091A9C761AB0CD30007760AD /* adlarmicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adlarmicon.png; sourceTree = "<group>"; };
+		09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ADLARMLOGO.png; sourceTree = "<group>"; };
+		09B5B2401ABA1FA6004158E0 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		09DB9CD21AAFAF00003425BB /* iphonesong.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = iphonesong.caf; path = ../iphonesong.caf; sourceTree = "<group>"; };
 		6943CC041AAF896900D32AD4 /* Adlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6943CC081AAF896900D32AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6943CC091AAF896900D32AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09B5B2411ABA1FA6004158E0 /* iAd.framework in Frameworks */,
 				6943CC2E1AAF899600D32AD4 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +75,7 @@
 		6943CBFB1AAF896900D32AD4 = {
 			isa = PBXGroup;
 			children = (
+				09B5B2401ABA1FA6004158E0 /* iAd.framework */,
 				6943CC2D1AAF899600D32AD4 /* AudioToolbox.framework */,
 				6943CC061AAF896900D32AD4 /* Adlarm */,
 				6943CC1C1AAF896900D32AD4 /* AdlarmTests */,
@@ -85,8 +95,10 @@
 		6943CC061AAF896900D32AD4 /* Adlarm */ = {
 			isa = PBXGroup;
 			children = (
+				091A9C761AB0CD30007760AD /* adlarmicon.png */,
 				6943CC2B1AAF898300D32AD4 /* ad-250x500.png */,
-				6943CC291AAF897E00D32AD4 /* iphonesongw.wav */,
+				09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */,
+				09DB9CD21AAFAF00003425BB /* iphonesong.caf */,
 				6943CC091AAF896900D32AD4 /* AppDelegate.swift */,
 				6943CC0B1AAF896900D32AD4 /* ViewController.swift */,
 				6943CC101AAF896900D32AD4 /* Images.xcassets */,
@@ -101,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				6943CC081AAF896900D32AD4 /* Info.plist */,
+				6943CC291AAF897E00D32AD4 /* iphonesongw.wav */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,7 +215,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09DB9CD31AAFAF00003425BB /* iphonesong.caf in Resources */,
 				6943CC2A1AAF897E00D32AD4 /* iphonesongw.wav in Resources */,
+				09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */,
+				091A9C771AB0CD30007760AD /* adlarmicon.png in Resources */,
 				6943CC2C1AAF898300D32AD4 /* ad-250x500.png in Resources */,
 				6943CC301AAF8A6800D32AD4 /* Main.storyboard in Resources */,
 				6943CC141AAF896900D32AD4 /* LaunchScreen.xib in Resources */,
@@ -409,6 +425,7 @@
 				6943CC251AAF896900D32AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6943CC261AAF896900D32AD4 /* Build configuration list for PBXNativeTarget "AdlarmTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +434,7 @@
 				6943CC281AAF896900D32AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,8 +8,14 @@
 
 import UIKit
 import AVFoundation
+import iAd
 
-class ViewController: UIViewController, UITextFieldDelegate {
+
+class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDelegate{
+    
+    var interAd = ADInterstitialAd()
+    var interAdView: UIView = UIView()
+    var closeButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
     
     //@IBOutlet weak var txtAddItem: UITextField!
     
@@ -21,22 +27,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var OnOffSwitch: UISwitch!
     
-    @IBOutlet weak var adImage: UIImageView!
     
     @IBOutlet weak var OnOffLabel: UILabel!
     
     @IBOutlet weak var ShowTime: UILabel!
     
+    @IBAction func showAdd(sender: UIButton) {
+    }
+    
     var alarmPlayer = AVAudioPlayer()
     
     var shoppingList: NSMutableArray!
     
+    var secondTimer = 0
+    var timer = NSTimer()
+    
+    let mediumRectAdView = ADBannerView(adType: ADAdType.MediumRectangle) //Create banner
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        adImage.image =  UIImage(named:("ad-250x500"))
-        adImage.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         
         //alarmPlayer.prepareToPlay()
@@ -62,8 +72,79 @@ class ViewController: UIViewController, UITextFieldDelegate {
         btnAction.layer.borderColor = UIColor.blackColor().CGColor
         
         
+        //Set the delegate
+        //mediumRectAdView!.delegate = self;
+        
+        let x = self.view.frame.size.width/4
+        let y = self.view.frame.size.height/1.25
+
+        
+        
+        closeButton.frame = CGRectMake(x, y, 100, 100)
+        closeButton.layer.cornerRadius = 10
+        closeButton.setTitle("Hold Down", forState: .Normal)
+        closeButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        closeButton.backgroundColor = UIColor.whiteColor()
+        closeButton.layer.borderColor = UIColor.blackColor().CGColor
+        closeButton.layer.borderWidth = 1
+        closeButton.addTarget(self, action: "startTiming", forControlEvents: UIControlEvents.TouchDown)
+        closeButton.addTarget(self, action: "stopTiming", forControlEvents: UIControlEvents.TouchUpInside)
         
     }
+    
+    
+//    func close(sender: UIButton) {
+//        closeButton.removeFromSuperview()
+//        interAdView.removeFromSuperview()
+//    }
+//    
+//    @IBAction func showAd(sender: UIButton) {
+//        loadAd()
+//    }
+    
+    func loadAd() {
+        println("load ad")
+        interAd = ADInterstitialAd()
+        interAd.delegate = self
+    }
+    
+    func interstitialAdDidLoad(interstitialAd: ADInterstitialAd!) {
+        println("ad did load")
+        
+        interAdView = UIView()
+        interAdView.frame = self.view.bounds
+        view.addSubview(interAdView)
+        
+        interAd.presentInView(interAdView)
+        UIViewController.prepareInterstitialAds()
+        
+        interAdView.addSubview(closeButton)
+    }
+    
+    func interstitialAdDidUnload(interstitialAd: ADInterstitialAd!) {
+        
+    }
+    
+    func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!) {
+        println("failed to receive")
+        println(error.localizedDescription)
+        
+        closeButton.removeFromSuperview()
+        interAdView.removeFromSuperview()
+        
+    }
+    
+    
+    /* //Delegate methods for AdBannerView
+    func bannerViewDidLoadAd(banner: ADBannerView!) {
+        println("success")
+        self.view.addSubview(banner) //Add banner to view (Ad loaded)
+    }
+    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError
+        error: NSError!) {
+            println("failed to load ad")
+            banner.removeFromSuperview() //Remove the banner (No ad)
+    } */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -102,29 +183,50 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func handleSnooze(){
         println("snooze is being handled")
         
+        loadAd()
+        
         var alarmSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("iphonesongw", ofType: "wav")!)
         println(alarmSound)
         
         var error:NSError?
         alarmPlayer = AVAudioPlayer(contentsOfURL: alarmSound, error: &error)
-        
-        //txtAddItem.hidden = true
-        //tblShoppingList.hidden = true
+        alarmPlayer.numberOfLoops = -1
+ 
         btnAction.hidden = true
         OnOffSwitch.hidden = true
         OnOffLabel.hidden = true
-        adImage.hidden = false
         
         alarmPlayer.play()
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("handleSnoozeHelper"), userInfo: nil, repeats: false)
-        
+    }
+    
+    func startTiming(){
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("incrementTimer"), userInfo: nil, repeats: true)
+    }
+    
+    func incrementTimer(){
+        println(secondTimer)
+        if(secondTimer >= 15){
+            timer.invalidate()
+            handleSnoozeHelper()
+        }
+        secondTimer++
+    }
+    
+    func stopTiming(){
+        println(secondTimer)
+        timer.invalidate()
+        if(secondTimer >= 15){
+            handleSnoozeHelper()
+        }
     }
     
     func handleSnoozeHelper(){
         
+        secondTimer = 0
         println("seting next snooze")
         alarmPlayer.stop()
+        interAdView.removeFromSuperview()
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         var localNotification = UILocalNotification()
@@ -135,7 +237,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
-        adImage.hidden = true
         //txtAddItem.hidden = false
         //tblShoppingList.hidden = false
         btnAction.hidden = false
@@ -376,6 +477,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         forRowAtIndexPath indexPath: NSIndexPath) {
             cell.backgroundColor = colorForIndex(indexPath.row)
     } */
+    
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let destination = segue.destinationViewController
+//            as UIViewController
+//        destination.interstitialPresentationPolicy =
+//            ADInterstitialPresentationPolicy.Automatic
+//    }
     
     
     
