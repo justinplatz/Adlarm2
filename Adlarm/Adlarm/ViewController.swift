@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     var interAd = ADInterstitialAd()
     var interAdView: UIView = UIView()
     var closeButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
-    
+    var countdown = UILabel()
     //@IBOutlet weak var txtAddItem: UITextField!
     
    // @IBOutlet weak var tblShoppingList: UITableView!
@@ -93,6 +93,9 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         closeButton.addTarget(self, action: "startTiming", forControlEvents: UIControlEvents.TouchDown)
         closeButton.addTarget(self, action: "stopTiming", forControlEvents: UIControlEvents.TouchUpInside)
         
+        countdown.text = String(secondTimer)
+        countdown.frame = CGRectMake(self.view.frame.size.width/1.33, self.view.frame.size.height/1.25, 25, 25)
+        
     }
     
     
@@ -122,6 +125,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         UIViewController.prepareInterstitialAds()
         
         interAdView.addSubview(closeButton)
+        interAdView.addSubview(countdown)
     }
     
     func interstitialAdDidUnload(interstitialAd: ADInterstitialAd!) {
@@ -133,6 +137,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         println(error.localizedDescription)
         
         closeButton.removeFromSuperview()
+        countdown.removeFromSuperview()
         interAdView.removeFromSuperview()
         
     }
@@ -214,6 +219,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
             handleSnoozeHelper()
         }
         secondTimer++
+        countdown.text = String(secondTimer)
     }
     
     func stopTiming(){
@@ -227,6 +233,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     func handleSnoozeHelper(){
         
         secondTimer = 0
+        countdown.text = String(secondTimer)
         println("seting next snooze")
         alarmPlayer.stop()
         interAdView.removeFromSuperview()
