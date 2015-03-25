@@ -198,10 +198,10 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "hh:mm"
-        ShowTime.text = dateFormatter.stringFromDate(NSDate(timeIntervalSinceNow: 60))
         var localNotification = UILocalNotification()
-        localNotification.soundName = "iphonesong.caf"
-        localNotification.fireDate = fixNotificationDate(NSDate(timeIntervalSinceNow: 60))
+        localNotification.soundName = "iphonesong.aiff"
+        localNotification.fireDate = NSDate(timeIntervalSinceNow: 60)
+        ShowTime.text = dateFormatter.stringFromDate(localNotification.fireDate!)
         localNotification.alertBody = "Hey, Wake Up!"
         localNotification.alertAction = "Let Me Snooze Again!"
         
@@ -213,18 +213,21 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     }
     
     func setupNotificationSettings() {
-        let notificationSettings: UIUserNotificationSettings! = UIApplication.sharedApplication().currentUserNotificationSettings()
+        //let notificationSettings: UIUserNotificationSettings! = UIApplication.sharedApplication().currentUserNotificationSettings()
         
-        if (notificationSettings.types == UIUserNotificationType.None){
+        //if (notificationSettings.types == UIUserNotificationType.None){
             // Specify the notification types.
+            println("setting notification settings")
             var notificationTypes: UIUserNotificationType = UIUserNotificationType.Alert | UIUserNotificationType.Sound
-        }
+            var mySettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
+            UIApplication.sharedApplication().registerUserNotificationSettings(mySettings)
+        //}
     }
     
     
     func scheduleLocalNotification() {
         var localNotification = UILocalNotification()
-        localNotification.soundName = "iphonesong.caf"
+        localNotification.soundName = "iphonesong.aiff"
         localNotification.fireDate = fixNotificationDate(datePicker.date)
         localNotification.alertBody = "Hey, Wake Up!"
         localNotification.alertAction = "Snooze"
