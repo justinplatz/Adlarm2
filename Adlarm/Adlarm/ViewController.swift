@@ -125,6 +125,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         UIViewController.prepareInterstitialAds()
         
         interAdView.addSubview(closeButton)
+        println(secondTimer)
         interAdView.addSubview(countdown)
     }
     
@@ -189,8 +190,9 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     }
     
     func handleSnooze(){
-        println("snooze is being handled")
-        
+        println("handling snooze")
+        secondTimer = 0
+        countdown.text = String(secondTimer)
         loadAd()
         
         var alarmSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("iphonesongw", ofType: "wav")!)
@@ -213,27 +215,25 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     }
     
     func incrementTimer(){
-        println(secondTimer)
-        if(secondTimer >= 15){
+        if(secondTimer >= 10){
             timer.invalidate()
             handleSnoozeHelper()
         }
+        println("incrementing timer to " + String(secondTimer + 1))
         secondTimer++
         countdown.text = String(secondTimer)
     }
     
     func stopTiming(){
-        println(secondTimer)
+        println("stopping timer")
         timer.invalidate()
-        if(secondTimer >= 15){
+        if(secondTimer >= 10){
             handleSnoozeHelper()
         }
     }
     
     func handleSnoozeHelper(){
-        
-        secondTimer = 0
-        countdown.text = String(secondTimer)
+
         println("seting next snooze")
         alarmPlayer.stop()
         interAdView.removeFromSuperview()
@@ -460,12 +460,14 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     @IBAction func AlarmToggle(sender: AnyObject) {
         
         if(OnOffSwitch.on == false){
+            println("disabling alarm")
             OnOffLabel.text = "Alarm is Off"
             UIApplication.sharedApplication().cancelAllLocalNotifications()
             
         }
         else{
             if(NSDate().compare(datePicker.date) != NSComparisonResult.OrderedDescending){
+                println("enabling alarm")
                 scheduleLocalNotification()
             }
             OnOffLabel.text = "Alarm is On"
