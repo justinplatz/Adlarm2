@@ -195,6 +195,10 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         interAdView.removeFromSuperview()
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm"
+        ShowTime.text = dateFormatter.stringFromDate(NSDate(timeIntervalSinceNow: 60))
         var localNotification = UILocalNotification()
         localNotification.soundName = "iphonesong.caf"
         localNotification.fireDate = fixNotificationDate(NSDate(timeIntervalSinceNow: 60))
