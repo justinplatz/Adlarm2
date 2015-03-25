@@ -17,9 +17,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     var interAdView: UIView = UIView()
     var closeButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
     var countdown = UILabel()
-    //@IBOutlet weak var txtAddItem: UITextField!
-    
-   // @IBOutlet weak var tblShoppingList: UITableView!
     
     @IBOutlet weak var btnAction: UIButton!
     
@@ -49,17 +46,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        //alarmPlayer.prepareToPlay()
-        
-        //self.tblShoppingList.delegate = self
-        //self.tblShoppingList.dataSource = self
-        
-        //self.txtAddItem.delegate = self
-        
         datePicker.hidden = true
-        
-        
-        //loadShoppingList()
         
         setupNotificationSettings()
         
@@ -75,9 +62,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         btnAction.layer.borderColor = UIColor.blackColor().CGColor
         
         
-        //Set the delegate
-        //mediumRectAdView!.delegate = self;
-        
+        //Set the delegate        
         let x = self.view.frame.size.width/4
         let y = self.view.frame.size.height/1.25
 
@@ -97,16 +82,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         countdown.frame = CGRectMake(self.view.frame.size.width/1.33, self.view.frame.size.height/1.25, 25, 25)
         
     }
-    
-    
-//    func close(sender: UIButton) {
-//        closeButton.removeFromSuperview()
-//        interAdView.removeFromSuperview()
-//    }
-//    
-//    @IBAction func showAd(sender: UIButton) {
-//        loadAd()
-//    }
     
     func loadAd() {
         println("load ad")
@@ -143,18 +118,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         
     }
     
-    
-    /* //Delegate methods for AdBannerView
-    func bannerViewDidLoadAd(banner: ADBannerView!) {
-        println("success")
-        self.view.addSubview(banner) //Add banner to view (Ad loaded)
-    }
-    func bannerView(banner: ADBannerView!, didFailToReceiveAdWithError
-        error: NSError!) {
-            println("failed to load ad")
-            banner.removeFromSuperview() //Remove the banner (No ad)
-    } */
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -166,15 +129,10 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     @IBAction func scheduleReminder(sender: AnyObject) {
         if datePicker.hidden {
             datePicker.minimumDate = NSDate(timeIntervalSinceNow: 60)
-            //animateMyViews(tblShoppingList, viewToShow: datePicker)
-            
-            
             datePicker.hidden = false
-            
             UIApplication.sharedApplication().cancelAllLocalNotifications()
         }
         else{
-            //animateMyViews(datePicker, viewToShow: tblShoppingList)
             datePicker.hidden = true
             if(NSDate().compare(datePicker.date) != NSComparisonResult.OrderedDescending){
                 scheduleLocalNotification()
@@ -185,8 +143,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
                 ShowTime.text = dateString
             }
         }
-        
-        //txtAddItem.enabled = !txtAddItem.enabled
     }
     
     func handleSnooze(){
@@ -239,6 +195,10 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         interAdView.removeFromSuperview()
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm"
+        ShowTime.text = dateFormatter.stringFromDate(NSDate(timeIntervalSinceNow: 60))
         var localNotification = UILocalNotification()
         localNotification.soundName = "iphonesong.caf"
         localNotification.fireDate = fixNotificationDate(NSDate(timeIntervalSinceNow: 60))
@@ -247,8 +207,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         
-        //txtAddItem.hidden = false
-        //tblShoppingList.hidden = false
         btnAction.hidden = false
         OnOffSwitch.hidden = false
         OnOffLabel.hidden = false
@@ -260,46 +218,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         if (notificationSettings.types == UIUserNotificationType.None){
             // Specify the notification types.
             var notificationTypes: UIUserNotificationType = UIUserNotificationType.Alert | UIUserNotificationType.Sound
-            
-            
-            // Specify the notification actions.
-            /*var justInformAction = UIMutableUserNotificationAction()
-            justInformAction.identifier = "justInform"
-            justInformAction.title = "OK, got it"
-            justInformAction.activationMode = UIUserNotificationActivationMode.Background
-            justInformAction.destructive = false
-            justInformAction.authenticationRequired = false*/
-            
-            /*var modifyListAction = UIMutableUserNotificationAction()
-            modifyListAction.identifier = "editList"
-            modifyListAction.title = "Edit list"
-            modifyListAction.activationMode = UIUserNotificationActivationMode.Foreground
-            modifyListAction.destructive = false
-            modifyListAction.authenticationRequired = true*/
-            
-            /*var trashAction = UIMutableUserNotificationAction()
-            trashAction.identifier = "trashAction"
-            trashAction.title = "Delete list?"
-            trashAction.activationMode = UIUserNotificationActivationMode.Background
-            trashAction.destructive = true
-            trashAction.authenticationRequired = true*/
-            
-            /*let actionsArray = NSArray(objects: modifyListAction)
-            let actionsArrayMinimal = NSArray(objects: modifyListAction)*/
-            
-            // Specify the category related to the above actions.
-            /*var shoppingListReminderCategory = UIMutableUserNotificationCategory()
-            shoppingListReminderCategory.identifier = "shoppingListReminderCategory"
-            shoppingListReminderCategory.setActions(actionsArray, forContext: UIUserNotificationActionContext.Default)
-            shoppingListReminderCategory.setActions(actionsArrayMinimal, forContext: UIUserNotificationActionContext.Minimal)*/
-            
-            
-            //let categoriesForSettings = NSSet(objects: shoppingListReminderCategory)
-            
-            
-            // Register the notification settings.
-            //let newNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: categoriesForSettings)
-            //UIApplication.sharedApplication().registerUserNotificationSettings(newNotificationSettings)
         }
     }
     
@@ -307,12 +225,10 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     func scheduleLocalNotification() {
         var localNotification = UILocalNotification()
         localNotification.soundName = "iphonesong.caf"
-        //localNotification.repeatInterval = NSCalendarUnit.CalendarUnitMinute
         localNotification.fireDate = fixNotificationDate(datePicker.date)
         localNotification.alertBody = "Hey, Wake Up!"
         localNotification.alertAction = "Snooze"
         localNotification.hasAction = true
-        //localNotification.category = "shoppingListReminderCategory"
         
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
@@ -327,133 +243,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
         
         return fixedDate
     }
-    
-    
-    //func handleModifyListNotification() {
-        //txtAddItem.becomeFirstResponder()
-    //}
-    
-    
-    //func handleDeleteListNotification() {
-        //shoppingList.removeAllObjects()
-        //saveShoppingList()
-        //tblShoppingList.reloadData()
-    //}
-    
-    
-    // MARK: Method implementation
-    
-    //func removeItemAtIndex(index: Int) {
-        //shoppingList.removeObjectAtIndex(index)
-        
-        //tblShoppingList.reloadData()
-        
-        //saveShoppingList()
-    //}
-    
-    
-    
-    //func saveShoppingList() {
-        //let pathsArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        //let documentsDirectory = pathsArray[0] as String
-        //let savePath = documentsDirectory.stringByAppendingPathComponent("shopping_list")
-        //shoppingList.writeToFile(savePath, atomically: true)
-    //}
-    
-    
-    //func loadShoppingList() {
-    //    let pathsArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-   //     let documentsDirectory = pathsArray[0] as String
-   //     let shoppingListPath = documentsDirectory.stringByAppendingPathComponent("shopping_list")
-        
-     //   if NSFileManager.defaultManager().fileExistsAtPath(shoppingListPath){
-       //     shoppingList = NSMutableArray(contentsOfFile: shoppingListPath)
-         //   tblShoppingList.reloadData()
-        //}
-    //}
-    
-    
-    /* func animateMyViews(viewToHide: UIView, viewToShow: UIView) {
-        let animationDuration = 0.35
-        
-        UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-            viewToHide.transform = CGAffineTransformScale(viewToHide.transform, 0.001, 0.001)
-            }) { (completion) -> Void in
-                
-                viewToHide.hidden = true
-                viewToShow.hidden = false
-                
-                viewToShow.transform = CGAffineTransformScale(viewToShow.transform, 0.001, 0.001)
-                
-                UIView.animateWithDuration(animationDuration, animations: { () -> Void in
-                    viewToShow.transform = CGAffineTransformIdentity
-                })
-        }
-    } */
-    
-    
-    
-    
-    
-    
-    // MARK: UITableView method implementation
-    
-    /* func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var rows = 0
-        
-        if let list = shoppingList{
-            rows = list.count
-        }
-        
-        return rows
-    }
-    
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("idCellItem") as UITableViewCell
-        
-        cell.textLabel!.text = shoppingList.objectAtIndex(indexPath.row) as NSString
-        
-        return cell
-    }
-    
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50.0
-    }
-    
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            removeItemAtIndex(indexPath.row)
-        }
-        
-    } */
-    
-    
-    
-    // MARK: UITextFieldDelegate method implementation
-    
-    /* func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if shoppingList == nil{
-            shoppingList = NSMutableArray()
-        }
-        shoppingList.addObject(textField.text)
-        
-        tblShoppingList.reloadData()
-        
-        txtAddItem.text = ""
-        txtAddItem.resignFirstResponder()
-        
-        saveShoppingList()
-        
-        return true
-    } */
     
     
     
@@ -473,31 +262,6 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
             OnOffLabel.text = "Alarm is On"
         }
     }
-    
-    
-    
-    
-    // MARK: - Table view delegate
-    /*
-    func colorForIndex(index: Int) -> UIColor {
-        let itemCount = shoppingList.count - 1
-        let val = (CGFloat(index) / CGFloat(itemCount)) * 0.6
-        return UIColor(red: 1.0, green: val, blue: 0.0, alpha: 1.0)
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
-        forRowAtIndexPath indexPath: NSIndexPath) {
-            cell.backgroundColor = colorForIndex(indexPath.row)
-    } */
-    
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        let destination = segue.destinationViewController
-//            as UIViewController
-//        destination.interstitialPresentationPolicy =
-//            ADInterstitialPresentationPolicy.Automatic
-//    }
-    
     
     
 }
