@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		091A9C771AB0CD30007760AD /* adlarmicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 091A9C761AB0CD30007760AD /* adlarmicon.png */; };
+		0931A0471AC87EA5001E5BC3 /* alarm22.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0931A0461AC87EA5001E5BC3 /* alarm22.wav */; };
 		09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */; };
 		09B5B2411ABA1FA6004158E0 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B5B2401ABA1FA6004158E0 /* iAd.framework */; };
 		693D442C1AC3527D0036390B /* iphonesong.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 693D442B1AC3527D0036390B /* iphonesong.aiff */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		091A9C761AB0CD30007760AD /* adlarmicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adlarmicon.png; sourceTree = "<group>"; };
+		0931A0461AC87EA5001E5BC3 /* alarm22.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm22.wav; sourceTree = "<group>"; };
 		09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ADLARMLOGO.png; sourceTree = "<group>"; };
 		09B5B2401ABA1FA6004158E0 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		693D442B1AC3527D0036390B /* iphonesong.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = iphonesong.aiff; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */,
 				6943CC091AAF896900D32AD4 /* AppDelegate.swift */,
 				693D442B1AC3527D0036390B /* iphonesong.aiff */,
+				0931A0461AC87EA5001E5BC3 /* alarm22.wav */,
 				6943CC0B1AAF896900D32AD4 /* ViewController.swift */,
 				6943CC101AAF896900D32AD4 /* Images.xcassets */,
 				6943CC2F1AAF8A6800D32AD4 /* Main.storyboard */,
@@ -217,6 +220,7 @@
 			files = (
 				6943CC2A1AAF897E00D32AD4 /* iphonesongw.wav in Resources */,
 				09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */,
+				0931A0471AC87EA5001E5BC3 /* alarm22.wav in Resources */,
 				091A9C771AB0CD30007760AD /* adlarmicon.png in Resources */,
 				6943CC2C1AAF898300D32AD4 /* ad-250x500.png in Resources */,
 				6943CC301AAF8A6800D32AD4 /* Main.storyboard in Resources */,

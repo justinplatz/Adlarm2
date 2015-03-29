@@ -227,7 +227,8 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     
     func scheduleLocalNotification() {
         var localNotification = UILocalNotification()
-        localNotification.soundName = "iphonesong.aiff"
+        //localNotification.soundName = "iphonesong.aiff"
+        localNotification.soundName = "alarm22.wav"
         localNotification.fireDate = fixNotificationDate(datePicker.date)
         localNotification.alertBody = "Hey, Wake Up!"
         localNotification.alertAction = "Snooze"
