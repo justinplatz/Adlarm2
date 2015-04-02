@@ -158,6 +158,12 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ce4-No-0f9">
+                                            <rect key="frame" x="217" y="42" width="65" height="30"/>
+                                            <state key="normal" title="Settings">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBa-2o-LkY">
                                             <rect key="frame" x="244" y="42" width="37" height="30"/>
                                             <state key="normal" title="Trash">
@@ -175,6 +181,7 @@
                                     <outlet property="AlarmNameLabel" destination="ZUq-oW-RLf" id="o9M-du-3nE"/>
                                     <outlet property="AlarmOnOffSwitch" destination="F1Q-CD-S4I" id="E0S-5a-ZNx"/>
                                     <outlet property="AlarmTimeLabel" destination="239-2B-zQN" id="cQz-Ow-dVs"/>
+                                    <outlet property="settingsButton" destination="Ce4-No-0f9" id="OGd-Ui-kXv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -207,6 +214,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFN-OI-YMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="926" y="340"/>
+        </scene>
+        <!--Edit Alarm-->
+        <scene sceneID="kf0-Jx-eDj">
+            <objects>
+                <viewController storyboardIdentifier="EditAlarmViewController" title="Edit Alarm" hidesBottomBarWhenPushed="YES" id="DL2-hW-sLM" customClass="EditAlarmViewController" customModule="Adlarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eY7-cN-fYt"/>
+                        <viewControllerLayoutGuide type="bottom" id="YfG-5i-nkp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GoB-M4-TzB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="A8z-Ak-kzd">
+                                <rect key="frame" x="0.0" y="65" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="449530094.99041998">
+                                    <!--2015-03-31 21:28:14 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="en_US_POSIX"/>
+                            </datePicker>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVI-w7-2ox">
+                                <rect key="frame" x="0.0" y="21" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Edit Alarm" id="Jex-BX-9cv">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OXV-Nf-oUZ"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="w1g-tY-HpY"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="cvG-MB-sPc"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YC1-WZ-WHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1374" y="-272"/>
         </scene>
         <!--New Alarm View Controller-->
         <scene sceneID="h1b-0B-sNB">
@@ -283,6 +330,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZlZ-7F-5Ik"/>
+        <segue reference="cfc-eL-nVi"/>
     </inferredMetricsTieBreakers>
 </document>

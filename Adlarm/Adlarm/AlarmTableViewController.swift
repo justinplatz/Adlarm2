@@ -125,6 +125,8 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
             for i in 0..<visibleCells.count {
                 let cell = visibleCells[i]
                 cell.AlarmOnOffSwitch.hidden = false
+                cell.settingsButton.hidden = true
+
             }
             
             
@@ -140,6 +142,8 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
             for i in 0..<visibleCells.count {
                 let cell = visibleCells[i]
                 cell.AlarmOnOffSwitch.hidden = true
+                cell.settingsButton.hidden = false
+
             }
         }
         

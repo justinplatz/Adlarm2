@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0919CB521ACDDF3600CA7A44 /* EditAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919CB511ACDDF3600CA7A44 /* EditAlarmViewController.swift */; };
 		091A9C771AB0CD30007760AD /* adlarmicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 091A9C761AB0CD30007760AD /* adlarmicon.png */; };
 		0931A0471AC87EA5001E5BC3 /* alarm22.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0931A0461AC87EA5001E5BC3 /* alarm22.wav */; };
 		094D60831ACB47FC00852BB7 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D60821ACB47FC00852BB7 /* AlarmTableViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0919CB511ACDDF3600CA7A44 /* EditAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlarmViewController.swift; sourceTree = "<group>"; };
 		091A9C761AB0CD30007760AD /* adlarmicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adlarmicon.png; sourceTree = "<group>"; };
 		0931A0461AC87EA5001E5BC3 /* alarm22.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm22.wav; sourceTree = "<group>"; };
 		094D60821ACB47FC00852BB7 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				6943CC0B1AAF896900D32AD4 /* ViewController.swift */,
 				6943CC101AAF896900D32AD4 /* Images.xcassets */,
 				6943CC2F1AAF8A6800D32AD4 /* Main.storyboard */,
+				0919CB511ACDDF3600CA7A44 /* EditAlarmViewController.swift */,
 				094D60861ACB4BEA00852BB7 /* AlarmTableViewCell.swift */,
 				094D60841ACB49A300852BB7 /* NewAlarmViewController.swift */,
 				094D60821ACB47FC00852BB7 /* AlarmTableViewController.swift */,
@@ -258,6 +261,7 @@
 			files = (
 				094D60871ACB4BEA00852BB7 /* AlarmTableViewCell.swift in Sources */,
 				6943CC0C1AAF896900D32AD4 /* ViewController.swift in Sources */,
+				0919CB521ACDDF3600CA7A44 /* EditAlarmViewController.swift in Sources */,
 				094D608D1ACB5F6400852BB7 /* CoreDataModel.xcdatamodeld in Sources */,
 				094D60851ACB49A300852BB7 /* NewAlarmViewController.swift in Sources */,
 				094D60831ACB47FC00852BB7 /* AlarmTableViewController.swift in Sources */,

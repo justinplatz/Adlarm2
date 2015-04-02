@@ -18,6 +18,7 @@ class AlarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var trashButton: UIButton!
     
+    @IBOutlet weak var settingsButton: UIButton!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
