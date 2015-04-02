@@ -158,7 +158,18 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBa-2o-LkY">
+                                            <rect key="frame" x="244" y="42" width="37" height="30"/>
+                                            <state key="normal" title="Trash">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="yBa-2o-LkY"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="AlarmNameLabel" destination="ZUq-oW-RLf" id="o9M-du-3nE"/>
@@ -172,8 +183,13 @@
                             <outlet property="delegate" destination="OHd-ir-38T" id="1y2-h0-A0v"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="OXi-tR-EU1">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="i51-Y2-1Jh"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="i51-Y2-1Jh">
+                            <connections>
+                                <action selector="editAlarm:" destination="OHd-ir-38T" id="VBf-Kc-hhv"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="CLi-g2-n9a">
                             <connections>
                                 <action selector="addName:" destination="OHd-ir-38T" id="vEB-16-6DJ"/>
@@ -181,9 +197,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="AlarmTableView" destination="g1V-Kt-Kcc" id="IWB-4P-qr7"/>
+                        <outlet property="editBarButton" destination="i51-Y2-1Jh" id="xzR-KQ-ROH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFN-OI-YMV" userLabel="First Responder" sceneMemberID="firstResponder"/>

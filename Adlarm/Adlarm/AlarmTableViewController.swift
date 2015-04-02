@@ -25,10 +25,8 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
     
     @IBOutlet var AlarmTableView: UITableView!
     
-    
-    
-    
-    
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
+
     override init(style: UITableViewStyle) {
         super.init(style: style)
         // Custom initialization
@@ -43,6 +41,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Adlarm"
         
         //tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "AlarmTableViewCell")
@@ -108,16 +107,81 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
         
     }
     
-    
-    
-
-    
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("AlarmTableViewCell") as? UITableViewCell
-
-      
+    @IBAction func editAlarm(sender: UIBarButtonItem) {
+        //self.editing = !self.editing
+        
+        if AlarmTableView.editing{
+            //listTableView.editing = false;
+            AlarmTableView.setEditing(false, animated: false);
+            editBarButton.style = UIBarButtonItemStyle.Plain;
+            editBarButton.title = "Edit";
+            
+            //listTableView.reloadData();
+        }
+        else{
+            //listTableView.editing = true;
+            AlarmTableView.setEditing(true, animated: true);
+            editBarButton.title = "Done";
+            editBarButton.style =  UIBarButtonItemStyle.Done;
+            //listTableView.reloadData();
+        }
+        
+        
     }
+    
+    
+//    override func tableView(tableView: (UITableView!), editingStyleForRowAtIndexPath indexPath: (NSIndexPath!)) -> UITableViewCellEditingStyle
+//    {
+//     
+//        
+//        if (self.editing && indexPath.row == alarmArray.count){
+//            return UITableViewCellEditingStyle.Insert;
+//        }
+//        else{
+//            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+//            
+//            let managedContext = appDelegate.managedObjectContext!
+//            
+//            managedContext.deleteObject(alarmArray[indexPath.row] as NSManagedObject)
+//            alarmArray.removeAtIndex(indexPath.row)
+//            managedContext.save(nil)
+//            
+//            return UITableViewCellEditingStyle.Delete;
+//        }
+//    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        switch editingStyle {
+        
+        case .Delete:
+            // remove the deleted item from the model
+            let appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let context:NSManagedObjectContext = appDel.managedObjectContext!
+            context.deleteObject(alarmArray[indexPath.row] as NSManagedObject)
+            alarmArray.removeAtIndex(indexPath.row)
+            context.save(nil)
+            
+            //tableView.reloadData()
+            // remove the deleted item from the `UITableView`
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        default:
+            return
+            
+        }
+    }
+    
+    
+    
+    // Update the data model according to edit actions delete or insert.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: (NSIndexPath!))
+    {
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+            alarmArray.removeAtIndex(indexPath.row);
+            self.editAlarm(editBarButton);
+            tableView.reloadData();
+        }
+    }
+
     
 
 }

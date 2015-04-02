@@ -16,6 +16,7 @@ class AlarmTableViewCell: UITableViewCell {
     
     @IBOutlet weak var AlarmOnOffSwitch: UISwitch!
     
+    @IBOutlet weak var trashButton: UIButton!
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -34,6 +35,7 @@ class AlarmTableViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
         // Configure the view for the selected state
     }
     
