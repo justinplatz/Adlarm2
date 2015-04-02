@@ -110,45 +110,44 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
     @IBAction func editAlarm(sender: UIBarButtonItem) {
         //self.editing = !self.editing
         
+        let cell =
+        tableView.dequeueReusableCellWithIdentifier("AlarmTableViewCell")
+            as UITableViewCell
+
         if AlarmTableView.editing{
-            //listTableView.editing = false;
             AlarmTableView.setEditing(false, animated: false);
             editBarButton.style = UIBarButtonItemStyle.Plain;
             editBarButton.title = "Edit";
             
-            //listTableView.reloadData();
+            let visibleCells = tableView.visibleCells() as [AlarmTableViewCell]
+            let lastView = visibleCells[visibleCells.count - 1] as AlarmTableViewCell
+
+            for i in 0..<visibleCells.count {
+                let cell = visibleCells[i]
+                cell.AlarmOnOffSwitch.hidden = false
+            }
+            
+            
         }
         else{
-            //listTableView.editing = true;
             AlarmTableView.setEditing(true, animated: true);
             editBarButton.title = "Done";
             editBarButton.style =  UIBarButtonItemStyle.Done;
-            //listTableView.reloadData();
+            
+            let visibleCells = tableView.visibleCells() as [AlarmTableViewCell]
+            let lastView = visibleCells[visibleCells.count - 1] as AlarmTableViewCell
+            
+            for i in 0..<visibleCells.count {
+                let cell = visibleCells[i]
+                cell.AlarmOnOffSwitch.hidden = true
+            }
         }
         
         
     }
     
     
-//    override func tableView(tableView: (UITableView!), editingStyleForRowAtIndexPath indexPath: (NSIndexPath!)) -> UITableViewCellEditingStyle
-//    {
-//     
-//        
-//        if (self.editing && indexPath.row == alarmArray.count){
-//            return UITableViewCellEditingStyle.Insert;
-//        }
-//        else{
-//            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-//            
-//            let managedContext = appDelegate.managedObjectContext!
-//            
-//            managedContext.deleteObject(alarmArray[indexPath.row] as NSManagedObject)
-//            alarmArray.removeAtIndex(indexPath.row)
-//            managedContext.save(nil)
-//            
-//            return UITableViewCellEditingStyle.Delete;
-//        }
-//    }
+
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         switch editingStyle {
@@ -171,6 +170,8 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
     }
     
     
+    
+
     
     // Update the data model according to edit actions delete or insert.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: (NSIndexPath!))
