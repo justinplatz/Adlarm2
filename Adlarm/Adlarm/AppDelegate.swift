@@ -68,11 +68,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Do something serious in a real app.
         println("Received Local Notification:")
         println(notification.alertBody)
-        NSNotificationCenter.defaultCenter().postNotificationName("snoozeNotification", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("snoozeNotification", object: nil, userInfo: notification.userInfo)
     }
     
     
-    func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
+    /*func application(application: UIApplication, handleActionWithIdentifier identifier: String?, forLocalNotification notification: UILocalNotification, completionHandler: () -> Void) {
         
         if identifier == "editList" {
             NSNotificationCenter.defaultCenter().postNotificationName("modifyListNotification", object: nil)
@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         completionHandler()
-    }
+    }*/
     
     
     

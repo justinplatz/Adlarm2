@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import AVFoundation
+import iAd
 
 struct alarmClass{
     var time :NSDate = NSDate()
@@ -16,12 +18,41 @@ struct alarmClass{
     
 }
 
+func fixNotificationDate(dateToFix: NSDate) -> NSDate {
+    var dateComponets: NSDateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.DayCalendarUnit | NSCalendarUnit.MonthCalendarUnit | NSCalendarUnit.YearCalendarUnit | NSCalendarUnit.HourCalendarUnit | NSCalendarUnit.MinuteCalendarUnit, fromDate: dateToFix)
+    
+    dateComponets.second = 0
+    
+    var fixedDate: NSDate! = NSCalendar.currentCalendar().dateFromComponents(dateComponets)
+    
+    return fixedDate
+}
 
-
+func scheduleLocalNotification(date: NSDate, uid: String) {
+    var localNotification = UILocalNotification()
+    localNotification.soundName = "alarm22.wav"
+    localNotification.fireDate = fixNotificationDate(date)
+    localNotification.alertBody = uid
+    localNotification.alertAction = "Snooze"
+    localNotification.hasAction = true
+    var id: [String: String] = ["id": uid as String]
+    localNotification.userInfo = id
+    
+    UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+}
 
 var alarmArray = [NSManagedObject]()
 
-class AlarmTableViewController: UITableViewController, UITableViewDataSource {
+class AlarmTableViewController: UITableViewController, UITableViewDataSource, ADInterstitialAdDelegate {
+    
+    var interAd = ADInterstitialAd()
+    var interAdView: UIView = UIView()
+    var closeButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+    var countdown = UILabel()
+    var alarmPlayer = AVAudioPlayer()
+    var secondTimer = 0
+    var timer = NSTimer()
+    var notificationID = String()
     
     @IBOutlet var AlarmTableView: UITableView!
     
@@ -34,6 +65,8 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleSnooze:", name: "snoozeNotification", object: nil)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -41,10 +74,27 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupNotificationSettings()
         title = "Adlarm"
         
         //tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "AlarmTableViewCell")
+        let x = self.view.frame.size.width/4
+        let y = self.view.frame.size.height/1.25
+        
+        
+        
+        closeButton.frame = CGRectMake(x, y, 100, 100)
+        closeButton.layer.cornerRadius = 10
+        closeButton.setTitle("Hold Down", forState: .Normal)
+        closeButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        closeButton.backgroundColor = UIColor.whiteColor()
+        closeButton.layer.borderColor = UIColor.blackColor().CGColor
+        closeButton.layer.borderWidth = 1
+        closeButton.addTarget(self, action: "startTiming", forControlEvents: UIControlEvents.TouchDown)
+        closeButton.addTarget(self, action: "stopTiming", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        countdown.text = String(secondTimer)
+        countdown.frame = CGRectMake(self.view.frame.size.width/1.33, self.view.frame.size.height/1.25, 25, 25)
     }
     
     
@@ -187,6 +237,120 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource {
         }
     }
 
+    func setupNotificationSettings() {
+        //let notificationSettings: UIUserNotificationSettings! = UIApplication.sharedApplication().currentUserNotificationSettings()
+        
+        //if (notificationSettings.types == UIUserNotificationType.None){
+        // Specify the notification types.
+        println("setting notification settings")
+        var notificationTypes: UIUserNotificationType = UIUserNotificationType.Alert | UIUserNotificationType.Sound
+        var mySettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(mySettings)
+        //}
+    }
     
+    //FUNCTIONS FOR ADS
+    func loadAd() {
+        println("load ad")
+        interAd = ADInterstitialAd()
+        interAd.delegate = self
+    }
+    
+    func interstitialAdDidLoad(interstitialAd: ADInterstitialAd!) {
+        println("ad did load")
+        
+        interAdView = UIView()
+        interAdView.frame = self.view.bounds
+        view.addSubview(interAdView)
+        
+        interAd.presentInView(interAdView)
+        UIViewController.prepareInterstitialAds()
+        
+        interAdView.addSubview(closeButton)
+        println(secondTimer)
+        interAdView.addSubview(countdown)
+    }
+    
+    func interstitialAdDidUnload(interstitialAd: ADInterstitialAd!) {
+        
+    }
+    
+    func interstitialAd(interstitialAd: ADInterstitialAd!, didFailWithError error: NSError!) {
+        println("failed to receive")
+        println(error.localizedDescription)
+        
+        closeButton.removeFromSuperview()
+        countdown.removeFromSuperview()
+        interAdView.removeFromSuperview()
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
+    //FUNCTIONS FOR SNOOZING
+    func handleSnooze(notification: NSNotification){
+        println("handling snooze")
+        notificationID = notification.userInfo!["id"] as String
+        secondTimer = 0
+        countdown.text = String(secondTimer)
+        loadAd()
+        
+        var alarmSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("iphonesongw", ofType: "wav")!)
+        
+        var error:NSError?
+        alarmPlayer = AVAudioPlayer(contentsOfURL: alarmSound, error: &error)
+        alarmPlayer.numberOfLoops = -1
+
+        
+        alarmPlayer.play()
+    }
+    
+    func startTiming(){
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("incrementTimer"), userInfo: nil, repeats: true)
+    }
+    
+    func incrementTimer(){
+        if(secondTimer >= 10){
+            timer.invalidate()
+            handleSnoozeHelper()
+        }
+        println("incrementing timer to " + String(secondTimer + 1))
+        secondTimer++
+        countdown.text = String(secondTimer)
+    }
+    
+    func stopTiming(){
+        println("stopping timer")
+        timer.invalidate()
+        if(secondTimer >= 10){
+            handleSnoozeHelper()
+        }
+    }
+    
+    func handleSnoozeHelper(){
+        
+        println("seting next snooze")
+        alarmPlayer.stop()
+        interAdView.removeFromSuperview()
+        
+        UIApplication.sharedApplication().cancelAllLocalNotifications()
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "hh:mm"
+        var localNotification = UILocalNotification()
+        localNotification.soundName = "alarm22.wav"
+        localNotification.fireDate = fixNotificationDate(NSDate(timeIntervalSinceNow: 60))
+        localNotification.alertBody = "Hey, Wake Up!"
+        localNotification.alertAction = "Let Me Snooze Again!"
+        var id: [String: String] = ["id": notificationID as String]
+        localNotification.userInfo = id
+        
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+
+    }
 
 }

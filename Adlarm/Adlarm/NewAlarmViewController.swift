@@ -59,6 +59,8 @@ class NewAlarmViewController: UIViewController {
         
         self.saveName(newAlarm)
         
+        scheduleLocalNotification(date, textField as String)
+        
         //AlarmTableViewController.AlarmTableView.reloadData()
         self.navigationController?.popToRootViewControllerAnimated(true)
 

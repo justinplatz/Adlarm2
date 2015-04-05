@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AlarmTableViewCell: UITableViewCell {
 
@@ -38,6 +39,40 @@ class AlarmTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    @IBAction func AlarmToggle(sender: AnyObject) {
+        
+        println("toggling")
+        if(AlarmOnOffSwitch.on == false){
+            println("disabling alarm")
+            var app:UIApplication = UIApplication.sharedApplication()
+            for oneEvent in app.scheduledLocalNotifications {
+                var notification = oneEvent as UILocalNotification
+                let userInfoCurrent = notification.userInfo! as [String:String]
+                let uid = userInfoCurrent["id"]! as String
+                if uid == AlarmNameLabel.text {
+                    //Cancelling local notification
+                    app.cancelLocalNotification(notification)
+                    break;
+                }
+            }
+        }
+        else{
+            var date = NSDate()
+            for obj in alarmArray{
+                var nsmo = obj as NSManagedObject
+                var name = nsmo.valueForKey("label") as String
+                if(name == AlarmNameLabel.text){
+                    date = nsmo.valueForKey("time") as NSDate
+                    break
+                }
+            }
+            if(NSDate().compare(date) != NSComparisonResult.OrderedDescending){
+                println("enabling alarm")
+                scheduleLocalNotification(date, AlarmNameLabel.text!)
+            }
+        }
     }
     
 }
