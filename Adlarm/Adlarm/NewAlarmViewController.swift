@@ -59,6 +59,11 @@ class NewAlarmViewController: UIViewController {
         
         self.saveName(newAlarm)
         
+        if date.timeIntervalSinceNow.isSignMinus{
+            //If the date added is < currentdate then add 24 hours to the date
+            date = date.dateByAddingTimeInterval(86400)
+        }
+
         scheduleLocalNotification(date, textField as String)
         
         //AlarmTableViewController.AlarmTableView.reloadData()
@@ -68,7 +73,8 @@ class NewAlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //let currentDate = NSDate()
+        //newAlarmDatePicker.minimumDate = currentDate
         
     }
     

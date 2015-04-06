@@ -142,7 +142,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             
             
             var dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "hh:mm" //format style. Browse online to get a format that fits your needs.
+            dateFormatter.dateFormat = "hh:mm a" //format style. Browse online to get a format that fits your needs.
             //var dateString = dateFormatter.stringFromDate(alarmArray[indexPath.row].time)
             var dateString = dateFormatter.stringFromDate(alarmArray[indexPath.row].valueForKey("time") as NSDate)
 
@@ -170,7 +170,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             editBarButton.title = "Edit";
             
             let visibleCells = tableView.visibleCells() as [AlarmTableViewCell]
-            let lastView = visibleCells[visibleCells.count - 1] as AlarmTableViewCell
+            //let lastView = visibleCells[visibleCells.count - 1] as AlarmTableViewCell
 
             for i in 0..<visibleCells.count {
                 let cell = visibleCells[i]
@@ -187,7 +187,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             editBarButton.style =  UIBarButtonItemStyle.Done;
             
             let visibleCells = tableView.visibleCells() as [AlarmTableViewCell]
-            let lastView = visibleCells[visibleCells.count - 1] as AlarmTableViewCell
+            //let lastView = visibleCells[visibleCells.count - 1] as AlarmTableViewCell
             
             for i in 0..<visibleCells.count {
                 let cell = visibleCells[i]
