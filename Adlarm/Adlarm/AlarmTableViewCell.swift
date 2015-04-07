@@ -9,6 +9,21 @@
 import UIKit
 import CoreData
 
+
+func deleteLocalNotification(label: String){
+    var app:UIApplication = UIApplication.sharedApplication()
+    for oneEvent in app.scheduledLocalNotifications {
+        var notification = oneEvent as UILocalNotification
+        let userInfoCurrent = notification.userInfo! as [String:String]
+        let uid = userInfoCurrent["id"]! as String
+        if uid == label {
+            //Cancelling local notification
+            app.cancelLocalNotification(notification)
+            break;
+        }
+    }
+}
+
 class AlarmTableViewCell: UITableViewCell {
 
     @IBOutlet weak var AlarmTimeLabel: UILabel!
@@ -46,17 +61,7 @@ class AlarmTableViewCell: UITableViewCell {
         println("toggling")
         if(AlarmOnOffSwitch.on == false){
             println("disabling alarm")
-            var app:UIApplication = UIApplication.sharedApplication()
-            for oneEvent in app.scheduledLocalNotifications {
-                var notification = oneEvent as UILocalNotification
-                let userInfoCurrent = notification.userInfo! as [String:String]
-                let uid = userInfoCurrent["id"]! as String
-                if uid == AlarmNameLabel.text {
-                    //Cancelling local notification
-                    app.cancelLocalNotification(notification)
-                    break;
-                }
-            }
+            deleteLocalNotification(AlarmNameLabel.text!)
         }
         else{
             var date = NSDate()
@@ -72,6 +77,23 @@ class AlarmTableViewCell: UITableViewCell {
                 println("enabling alarm")
                 scheduleLocalNotification(date, AlarmNameLabel.text!)
             }
+        }
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
+        let fetchRequest = NSFetchRequest(entityName:"AlarmEntity")
+        fetchRequest.predicate = NSPredicate(format: "label = %@", AlarmNameLabel.text!)
+        var error: NSError?
+        let fetchedResults =
+        managedContext.executeFetchRequest(fetchRequest,
+            error: &error) as [NSManagedObject]?
+        
+        if let results = fetchedResults {
+            var managedObject = results[0]
+            managedObject.setValue(AlarmOnOffSwitch.on, forKey: "repeat")
+            managedContext.save(nil)
+        } else {
+            println("Could not fetch \(error), \(error!.userInfo)")
         }
     }
     

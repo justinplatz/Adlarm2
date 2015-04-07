@@ -76,13 +76,10 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         super.viewDidLoad()
         setupNotificationSettings()
         title = "Adlarm"
-        
+
         //tableView.registerClass(UITableViewCell.self,forCellReuseIdentifier: "AlarmTableViewCell")
         let x = self.view.frame.size.width/4
         let y = self.view.frame.size.height/1.25
-        
-        
-        
         closeButton.frame = CGRectMake(x, y, 100, 100)
         closeButton.layer.cornerRadius = 10
         closeButton.setTitle("Hold Down", forState: .Normal)
@@ -145,10 +142,12 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             dateFormatter.dateFormat = "hh:mm a" //format style. Browse online to get a format that fits your needs.
             //var dateString = dateFormatter.stringFromDate(alarmArray[indexPath.row].time)
             var dateString = dateFormatter.stringFromDate(alarmArray[indexPath.row].valueForKey("time") as NSDate)
-
+ 
             (cell as AlarmTableViewCell).AlarmTimeLabel.text = dateString
             
             (cell as AlarmTableViewCell).AlarmNameLabel.text = alarmArray[indexPath.row].valueForKey("label") as String?
+            
+            (cell as AlarmTableViewCell).AlarmOnOffSwitch.on = alarmArray[indexPath.row].valueForKey("repeat") as Bool
             
             return cell
     }
@@ -193,7 +192,6 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
                 let cell = visibleCells[i]
                 cell.AlarmOnOffSwitch.hidden = true
                 cell.settingsButton.hidden = false
-
             }
         }
         
@@ -208,6 +206,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
         case .Delete:
             // remove the deleted item from the model
+            deleteLocalNotification(alarmArray[indexPath.row].valueForKey("label") as String)
             let appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
             let context:NSManagedObjectContext = appDel.managedObjectContext!
             context.deleteObject(alarmArray[indexPath.row] as NSManagedObject)
