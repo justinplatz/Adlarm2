@@ -146,7 +146,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             (cell as AlarmTableViewCell).AlarmTimeLabel.text = dateString
             
             (cell as AlarmTableViewCell).AlarmNameLabel.text = alarmArray[indexPath.row].valueForKey("label") as String?
-            
+
             (cell as AlarmTableViewCell).AlarmOnOffSwitch.on = alarmArray[indexPath.row].valueForKey("repeat") as Bool
             
             return cell
@@ -220,6 +220,12 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             return
             
         }
+    }
+    
+    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+        NSLog("did select and the text is \(cell?.textLabel?.text)")
     }
     
     
