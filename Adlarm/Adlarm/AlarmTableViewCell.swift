@@ -10,20 +10,6 @@ import UIKit
 import CoreData
 
 
-func deleteLocalNotification(label: String){
-    var app:UIApplication = UIApplication.sharedApplication()
-    for oneEvent in app.scheduledLocalNotifications {
-        var notification = oneEvent as UILocalNotification
-        let userInfoCurrent = notification.userInfo! as [String:String]
-        let uid = userInfoCurrent["id"]! as String
-        if uid == label {
-            //Cancelling local notification
-            app.cancelLocalNotification(notification)
-            break;
-        }
-    }
-}
-
 class AlarmTableViewCell: UITableViewCell {
 
     @IBOutlet weak var AlarmTimeLabel: UILabel!
