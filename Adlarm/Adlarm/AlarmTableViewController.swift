@@ -32,6 +32,7 @@ func scheduleLocalNotification(date: NSDate, uid: String) {
     var localNotification = UILocalNotification()
     localNotification.soundName = "alarm22.wav"
     localNotification.fireDate = fixNotificationDate(date)
+    localNotification.repeatInterval = NSCalendarUnit.CalendarUnitDay
     localNotification.alertBody = uid
     localNotification.alertAction = "Snooze"
     localNotification.hasAction = true
@@ -92,6 +93,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
         countdown.text = String(secondTimer)
         countdown.frame = CGRectMake(self.view.frame.size.width/1.33, self.view.frame.size.height/1.25, 25, 25)
+        
     }
     
     
@@ -107,7 +109,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
         //2
         let fetchRequest = NSFetchRequest(entityName:"AlarmEntity")
-        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "time", ascending: true)]
         //3
         var error: NSError?
         
@@ -117,6 +119,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
         if let results = fetchedResults {
             alarmArray = results
+            AlarmTableView.reloadData()
         } else {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
@@ -137,10 +140,10 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             tableView.dequeueReusableCellWithIdentifier("AlarmTableViewCell")
                 as UITableViewCell
             
-            
             var dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "hh:mm a" //format style. Browse online to get a format that fits your needs.
             //var dateString = dateFormatter.stringFromDate(alarmArray[indexPath.row].time)
+            println(indexPath.row)
             var dateString = dateFormatter.stringFromDate(alarmArray[indexPath.row].valueForKey("time") as NSDate)
  
             (cell as AlarmTableViewCell).AlarmTimeLabel.text = dateString
@@ -225,7 +228,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = self.tableView.cellForRowAtIndexPath(indexPath)
-        NSLog("did select and the text is \(cell?.textLabel?.text)")
+        NSLog("did select and the text is \(cell?.textLabel.text)")
     }
     
     
