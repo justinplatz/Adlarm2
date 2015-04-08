@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 
-class EditAlarmViewController: UIViewController {
+class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var editAlarmDatePicker: UIDatePicker!
     
@@ -18,10 +18,45 @@ class EditAlarmViewController: UIViewController {
     
     @IBOutlet weak var editAlarmSaveButton: UIBarButtonItem!
     
+    @IBOutlet weak var editSoundPicker: UIPickerView!
+    
+    
+    let pickerData = ["alarm22.wav","salmon.wav","fudale.wav"]
+    
+    //MARK: - Delegates and data sources
+    //MARK: Data Sources
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    //MARK: Delegates
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return pickerData[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedSound = pickerData[row]
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        editSoundPicker.dataSource = self
+        editSoundPicker.delegate = self
+        
+        
+        for obj in alarmArray{
+            var nsmo = obj as NSManagedObject
+            var name = nsmo.valueForKey("label") as String
+            if(name == labelToEdit){
+                editAlarmDatePicker.date = nsmo.valueForKey("time") as NSDate
+                editAlarmTextField.text = nsmo.valueForKey("label") as String
+                break
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -81,22 +116,31 @@ class EditAlarmViewController: UIViewController {
         var textField = editAlarmTextField.text
         var date = editAlarmDatePicker.date
         
-        var newAlarm = alarmClass(time: date, label: textField, repeat: true)
-        println(newAlarm.time)
-        
-        //AlarmTableViewCell.AlarmTimeLabel.text = newAlarm.time as String
-        
-        self.saveName(newAlarm)
-        
-        if date.timeIntervalSinceNow.isSignMinus{
-            //If the date added is < currentdate then add 24 hours to the date
-            date = date.dateByAddingTimeInterval(86400)
-        }
-        
-        scheduleLocalNotification(date, textField as String)
-        
-        //AlarmTableViewController.AlarmTableView.reloadData()
-        self.dismissViewControllerAnimated(true, completion: {});//This is intended to dismiss the edit sceen.
+        var newAlarm = alarmClass(time: date, label: textField, repeat: true, sound: selectedSound)
+
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let managedContext = appDelegate.managedObjectContext!
+            let fetchRequest = NSFetchRequest(entityName:"AlarmEntity")
+            fetchRequest.predicate = NSPredicate(format: "label = %@", labelToEdit)
+            var error: NSError?
+            let fetchedResults =
+            managedContext.executeFetchRequest(fetchRequest,
+                error: &error) as [NSManagedObject]?
+            if let results = fetchedResults {
+                var managedObject = results[0]
+                managedObject.setValue(date, forKey: "time")
+                managedObject.setValue(textField, forKey: "label")
+
+                managedContext.save(nil)
+            } else {
+                println("Could not fetch \(error), \(error!.userInfo)")
+            }
+
+           deleteLocalNotification(labelToEdit)
+
+           scheduleLocalNotification(date, textField as String, selectedSound)
+
+           self.dismissViewControllerAnimated(true, completion: {});//This is intended to dismiss the edit sceen.
 
 
     }

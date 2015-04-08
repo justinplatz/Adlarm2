@@ -9,13 +9,34 @@
 import UIKit
 import CoreData
 
-class NewAlarmViewController: UIViewController {
+class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var newAlarmDatePicker: UIDatePicker!
     
     @IBOutlet weak var newAlarmLabelTextField: UITextField!
     
+    @IBOutlet weak var soundPicker: UIPickerView!
+    let pickerData = ["alarm22.wav","salmon.wav","fudale.wav"]
 
+    //MARK: - Delegates and data sources
+    //MARK: Data Sources
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    //MARK: Delegates
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
+        return pickerData[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedSound = pickerData[row]
+    }
+    
+    
+    @IBOutlet weak var testSoundButton: UIButton!
     
     func saveName(alarmObject: alarmClass) {
         //1
@@ -36,6 +57,8 @@ class NewAlarmViewController: UIViewController {
         alarm.setValue(alarmObject.time, forKey: "time")
         alarm.setValue(alarmObject.label, forKey: "label")
         alarm.setValue(alarmObject.repeat, forKey: "repeat")
+        alarm.setValue(alarmObject.sound, forKey: "sound")
+
         
         
         //4
@@ -52,7 +75,7 @@ class NewAlarmViewController: UIViewController {
         var textField = newAlarmLabelTextField.text
         var date = newAlarmDatePicker.date
         
-        var newAlarm = alarmClass(time: date, label: textField, repeat: true)
+        var newAlarm = alarmClass(time: date, label: textField, repeat: true, sound: selectedSound )
         println(newAlarm.time)
         
         //AlarmTableViewCell.AlarmTimeLabel.text = newAlarm.time as String
@@ -64,7 +87,7 @@ class NewAlarmViewController: UIViewController {
             date = date.dateByAddingTimeInterval(86400)
         }
 
-        scheduleLocalNotification(date, textField as String)
+        scheduleLocalNotification(date, textField as String, selectedSound)
         
         //AlarmTableViewController.AlarmTableView.reloadData()
         self.navigationController?.popToRootViewControllerAnimated(true)
@@ -73,9 +96,8 @@ class NewAlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let currentDate = NSDate()
-        //newAlarmDatePicker.minimumDate = currentDate
-        
+        soundPicker.dataSource = self
+        soundPicker.delegate = self
     }
     
     override func didReceiveMemoryWarning() {

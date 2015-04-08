@@ -16,6 +16,7 @@ struct alarmClass{
     var time :NSDate = NSDate()
     var label: String?
     var repeat: Bool = true
+    var sound: String?
     
 }
 
@@ -43,9 +44,9 @@ func fixNotificationDate(dateToFix: NSDate) -> NSDate {
     return fixedDate
 }
 
-func scheduleLocalNotification(date: NSDate, uid: String) {
+func scheduleLocalNotification(date: NSDate, uid: String, sound: String) {
     var localNotification = UILocalNotification()
-    localNotification.soundName = "alarm22.wav"
+    localNotification.soundName = sound
     localNotification.fireDate = fixNotificationDate(date)
     localNotification.repeatInterval = NSCalendarUnit.CalendarUnitDay
     localNotification.alertBody = uid
@@ -58,3 +59,7 @@ func scheduleLocalNotification(date: NSDate, uid: String) {
 }
 
 var alarmArray = [NSManagedObject]()
+
+var labelToEdit = String()
+
+var selectedSound = "alarm22.wav"

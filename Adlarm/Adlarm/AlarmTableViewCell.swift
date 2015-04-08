@@ -53,9 +53,12 @@ class AlarmTableViewCell: UITableViewCell {
         }
         else{
             var date = NSDate()
+            var soundNsmo = String()
             for obj in alarmArray{
                 var nsmo = obj as NSManagedObject
                 var name = nsmo.valueForKey("label") as String
+                soundNsmo = nsmo.valueForKey("sound") as String
+
                 if(name == AlarmNameLabel.text){
                     date = nsmo.valueForKey("time") as NSDate
                     break
@@ -63,7 +66,7 @@ class AlarmTableViewCell: UITableViewCell {
             }
             if(NSDate().compare(date) != NSComparisonResult.OrderedDescending){
                 println("enabling alarm")
-                scheduleLocalNotification(date, AlarmNameLabel.text!)
+                scheduleLocalNotification(date, AlarmNameLabel.text!, soundNsmo)
             }
         }
         
@@ -84,5 +87,11 @@ class AlarmTableViewCell: UITableViewCell {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
     }
+    
+    @IBAction func alarmSettings(sender: AnyObject) {
+        labelToEdit = AlarmNameLabel.text as String!
+    }
+    
+    
     
 }

@@ -167,6 +167,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
+                                                <action selector="alarmSettings:" destination="zSF-aS-OlH" eventType="touchUpInside" id="PVt-8F-GKC"/>
                                                 <segue destination="DL2-hW-sLM" kind="presentation" id="yKz-TM-d4Q"/>
                                             </connections>
                                         </button>
@@ -268,6 +269,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEa-ZW-BNS">
+                                <rect key="frame" x="0.0" y="298" width="320" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -279,6 +283,7 @@
                         <outlet property="editAlarmDatePicker" destination="A8z-Ak-kzd" id="Ico-uc-Qoo"/>
                         <outlet property="editAlarmSaveButton" destination="w1g-tY-HpY" id="v3C-9G-BQF"/>
                         <outlet property="editAlarmTextField" destination="5VL-wn-NGS" id="Wgp-ox-MBA"/>
+                        <outlet property="editSoundPicker" destination="iEa-ZW-BNS" id="bDg-pJ-EFK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YC1-WZ-WHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -315,6 +320,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-63-Z4K">
+                                <rect key="frame" x="0.0" y="306" width="320" height="162"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aW-PK-Qps">
+                                <rect key="frame" x="89" y="466" width="142" height="48"/>
+                                <state key="normal" title="Test Alarm Sound">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -334,6 +348,8 @@
                     <connections>
                         <outlet property="newAlarmDatePicker" destination="XKg-dh-Bru" id="uAY-XI-xa9"/>
                         <outlet property="newAlarmLabelTextField" destination="FCQ-L0-31r" id="Kff-Rw-iBW"/>
+                        <outlet property="soundPicker" destination="7Y0-63-Z4K" id="NY0-EL-q0Y"/>
+                        <outlet property="testSoundButton" destination="0aW-PK-Qps" id="JBQ-jm-Z53"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAJ-ze-yRY" userLabel="First Responder" sceneMemberID="firstResponder"/>

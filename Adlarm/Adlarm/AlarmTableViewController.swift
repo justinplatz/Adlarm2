@@ -289,7 +289,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     func incrementTimer(){
         if(secondTimer >= 10){
             timer.invalidate()
-            handleSnoozeHelper()
+            handleSnoozeHelper(notificationID)
         }
         println("incrementing timer to " + String(secondTimer + 1))
         secondTimer++
@@ -300,11 +300,11 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         println("stopping timer")
         timer.invalidate()
         if(secondTimer >= 10){
-            handleSnoozeHelper()
+            handleSnoozeHelper(notificationID)
         }
     }
     
-    func handleSnoozeHelper(){
+    func handleSnoozeHelper(alarmName: String){
         
         println("seting next snooze")
         alarmPlayer.stop()
@@ -313,14 +313,26 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         
+        var snoozeSound = String()
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "hh:mm"
         var localNotification = UILocalNotification()
-        localNotification.soundName = "alarm22.wav"
+        var id: [String: String] = ["id": notificationID as String]
+
+        for obj in alarmArray{
+            var nsmo = obj as NSManagedObject
+            var name = nsmo.valueForKey("label") as String
+            if(name ==  alarmName){
+                snoozeSound = nsmo.valueForKey("sound") as String
+                break
+            }
+        }
+        
+        localNotification.soundName = snoozeSound
+        
         localNotification.fireDate = fixNotificationDate(NSDate(timeIntervalSinceNow: 60))
         localNotification.alertBody = "Hey, Wake Up!"
         localNotification.alertAction = "Let Me Snooze Again!"
-        var id: [String: String] = ["id": notificationID as String]
         localNotification.userInfo = id
         
         
