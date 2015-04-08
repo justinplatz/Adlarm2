@@ -48,6 +48,8 @@ class AlarmTableViewCell: UITableViewCell {
         if(AlarmOnOffSwitch.on == false){
             println("disabling alarm")
             deleteLocalNotification(AlarmNameLabel.text!)
+            
+            
         }
         else{
             var date = NSDate()

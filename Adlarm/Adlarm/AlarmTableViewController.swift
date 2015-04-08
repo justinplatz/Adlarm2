@@ -38,10 +38,12 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     }
 
     override func viewDidAppear(animated: Bool) {
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         setupNotificationSettings()
         title = "Adlarm"
 
@@ -64,10 +66,9 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     }
     
     
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         //1
         let appDelegate =
         UIApplication.sharedApplication().delegate as AppDelegate
@@ -193,11 +194,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     }
     
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = self.tableView.cellForRowAtIndexPath(indexPath)
-        NSLog("did select and the text is \(cell?.textLabel.text)")
-    }
-    
+
     
     
 
@@ -233,7 +230,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     
     func interstitialAdDidLoad(interstitialAd: ADInterstitialAd!) {
         println("ad did load")
-        
+        self.navigationController?.navigationBarHidden = true
         interAdView = UIView()
         interAdView.frame = self.view.bounds
         view.addSubview(interAdView)
@@ -244,6 +241,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         interAdView.addSubview(closeButton)
         println(secondTimer)
         interAdView.addSubview(countdown)
+
     }
     
     func interstitialAdDidUnload(interstitialAd: ADInterstitialAd!) {
@@ -257,6 +255,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         closeButton.removeFromSuperview()
         countdown.removeFromSuperview()
         interAdView.removeFromSuperview()
+
         
     }
     
@@ -310,6 +309,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         println("seting next snooze")
         alarmPlayer.stop()
         interAdView.removeFromSuperview()
+        self.navigationController?.navigationBarHidden = false
         
         UIApplication.sharedApplication().cancelAllLocalNotifications()
         
