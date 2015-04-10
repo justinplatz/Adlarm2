@@ -24,6 +24,10 @@ class AlarmTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+      
+
+
         // Initialization code
     }
     
@@ -47,11 +51,13 @@ class AlarmTableViewCell: UITableViewCell {
         println("toggling")
         if(AlarmOnOffSwitch.on == false){
             println("disabling alarm")
+            self.backgroundColor = UIColor.grayColor()
             deleteLocalNotification(AlarmNameLabel.text!)
             
             
         }
         else{
+            self.backgroundColor = UIColor.whiteColor()
             var date = NSDate()
             var soundNsmo = String()
             for obj in alarmArray{

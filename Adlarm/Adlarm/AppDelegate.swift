@@ -24,6 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Sound | UIUserNotificationType.Alert | UIUserNotificationType.Badge, categories: nil))
         }
         
+        
+//        // set up your background color view
+//        let colorView = UIView()
+//        colorView.backgroundColor = UIColor.greenColor()
+//        
+//        // use UITableViewCell.appearance() to configure
+//        // the default appearance of all UITableViewCells in your app
+//        UITableViewCell.appearance().selectedBackgroundView = colorView
+        
         UIViewController.prepareInterstitialAds()
         
         return true

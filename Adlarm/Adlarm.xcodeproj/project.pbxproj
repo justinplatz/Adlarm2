@@ -14,6 +14,8 @@
 		094D60851ACB49A300852BB7 /* NewAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D60841ACB49A300852BB7 /* NewAlarmViewController.swift */; };
 		094D60871ACB4BEA00852BB7 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D60861ACB4BEA00852BB7 /* AlarmTableViewCell.swift */; };
 		094D608D1ACB5F6400852BB7 /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 094D608B1ACB5F6400852BB7 /* CoreDataModel.xcdatamodeld */; };
+		0952038F1AD86A6A007AFDAF /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 0952038E1AD86A6A007AFDAF /* settings.png */; };
+		095203911AD87406007AFDAF /* adlarmsplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 095203901AD87406007AFDAF /* adlarmsplash.png */; };
 		097ED7C11AD5D39C007F574F /* salmon.wav in Resources */ = {isa = PBXBuildFile; fileRef = 097ED7C01AD5D39B007F574F /* salmon.wav */; };
 		097ED7C31AD5D3A1007F574F /* fudale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 097ED7C21AD5D3A1007F574F /* fudale.wav */; };
 		09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */; };
@@ -48,6 +50,8 @@
 		094D60841ACB49A300852BB7 /* NewAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAlarmViewController.swift; sourceTree = "<group>"; };
 		094D60861ACB4BEA00852BB7 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 		094D608C1ACB5F6400852BB7 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0952038E1AD86A6A007AFDAF /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		095203901AD87406007AFDAF /* adlarmsplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adlarmsplash.png; sourceTree = "<group>"; };
 		097ED7C01AD5D39B007F574F /* salmon.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = salmon.wav; sourceTree = "<group>"; };
 		097ED7C21AD5D3A1007F574F /* fudale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fudale.wav; sourceTree = "<group>"; };
 		09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ADLARMLOGO.png; sourceTree = "<group>"; };
@@ -112,7 +116,9 @@
 			isa = PBXGroup;
 			children = (
 				091A9C761AB0CD30007760AD /* adlarmicon.png */,
+				0952038E1AD86A6A007AFDAF /* settings.png */,
 				6943CC2B1AAF898300D32AD4 /* ad-250x500.png */,
+				095203901AD87406007AFDAF /* adlarmsplash.png */,
 				09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */,
 				6943CC091AAF896900D32AD4 /* AppDelegate.swift */,
 				094D608B1ACB5F6400852BB7 /* CoreDataModel.xcdatamodeld */,
@@ -239,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0952038F1AD86A6A007AFDAF /* settings.png in Resources */,
 				6943CC2A1AAF897E00D32AD4 /* iphonesongw.wav in Resources */,
 				09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */,
 				0931A0471AC87EA5001E5BC3 /* alarm22.wav in Resources */,
@@ -247,6 +254,8 @@
 				097ED7C31AD5D3A1007F574F /* fudale.wav in Resources */,
 				6943CC2C1AAF898300D32AD4 /* ad-250x500.png in Resources */,
 				6943CC301AAF8A6800D32AD4 /* Main.storyboard in Resources */,
+				693D442C1AC3527D0036390B /* iphonesong.aiff in Resources */,
+				095203911AD87406007AFDAF /* adlarmsplash.png in Resources */,
 				6943CC141AAF896900D32AD4 /* LaunchScreen.xib in Resources */,
 				6943CC111AAF896900D32AD4 /* Images.xcassets in Resources */,
 			);

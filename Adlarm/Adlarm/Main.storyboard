@@ -161,9 +161,9 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ce4-No-0f9">
-                                            <rect key="frame" x="217" y="42" width="65" height="30"/>
-                                            <state key="normal" title="Settings">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ce4-No-0f9">
+                                            <rect key="frame" x="238" y="39" width="36" height="36"/>
+                                            <state key="normal" image="settings.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -379,6 +379,9 @@
             <point key="canvasLocation" x="396" y="340"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="settings.png" width="256" height="256"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cfc-eL-nVi"/>
     </inferredMetricsTieBreakers>
