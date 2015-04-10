@@ -120,6 +120,14 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
 
             (cell as AlarmTableViewCell).AlarmOnOffSwitch.on = alarmArray[indexPath.row].valueForKey("repeat") as Bool
             
+            if(alarmArray[indexPath.row].valueForKey("repeat") as Bool == false){
+                cell.backgroundColor = UIColor.grayColor()
+            }
+            else{
+                cell.backgroundColor = UIColor.whiteColor()
+            }
+            
+            
             return cell
     }
     
