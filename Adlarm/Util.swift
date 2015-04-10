@@ -61,5 +61,3 @@ func scheduleLocalNotification(date: NSDate, uid: String, sound: String) {
 var alarmArray = [NSManagedObject]()
 
 var labelToEdit = String()
-
-var selectedSound = "alarm22.wav"

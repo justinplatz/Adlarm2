@@ -23,6 +23,8 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     let pickerData = ["alarm22.wav","salmon.wav","fudale.wav"]
     
+    var selectedSound: String?
+    
     //MARK: - Delegates and data sources
     //MARK: Data Sources
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -38,6 +40,7 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedSound = pickerData[row]
+        println(selectedSound)
     }
     
     
@@ -53,6 +56,9 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             if(name == labelToEdit){
                 editAlarmDatePicker.date = nsmo.valueForKey("time") as NSDate
                 editAlarmTextField.text = nsmo.valueForKey("label") as String
+                selectedSound = nsmo.valueForKey("sound") as String!
+                var rowToGet = find(pickerData, selectedSound!)!
+                editSoundPicker.selectRow(rowToGet, inComponent: 0, animated: true)
                 break
             }
         }
@@ -81,7 +87,7 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     
     
-    func saveName(alarmObject: alarmClass) {
+    /*func saveName(alarmObject: alarmClass) {
         //1
         let appDelegate =
         UIApplication.sharedApplication().delegate as AppDelegate
@@ -100,7 +106,7 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         alarm.setValue(alarmObject.time, forKey: "time")
         alarm.setValue(alarmObject.label, forKey: "label")
         alarm.setValue(alarmObject.repeat, forKey: "repeat")
-        
+        alarm.setValue(alarmObject.sound, forKey: "sound")
         
         //4
         var error: NSError?
@@ -109,14 +115,13 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         }
         //5
         alarmArray.append(alarm)
-    }
+    }*/
     
     @IBAction func saveEditAlarm(sender: AnyObject) {
         
         var textField = editAlarmTextField.text
         var date = editAlarmDatePicker.date
-        
-        var newAlarm = alarmClass(time: date, label: textField, repeat: true, sound: selectedSound)
+        //var newAlarm = alarmClass(time: date, label: textField, repeat: true, sound: selectedSound)
 
             let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
             let managedContext = appDelegate.managedObjectContext!
@@ -130,7 +135,7 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 var managedObject = results[0]
                 managedObject.setValue(date, forKey: "time")
                 managedObject.setValue(textField, forKey: "label")
-
+                managedObject.setValue(selectedSound, forKey: "sound")
                 managedContext.save(nil)
             } else {
                 println("Could not fetch \(error), \(error!.userInfo)")
@@ -138,7 +143,7 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 
            deleteLocalNotification(labelToEdit)
 
-           scheduleLocalNotification(date, textField as String, selectedSound)
+           scheduleLocalNotification(date, textField as String, selectedSound!)
 
            self.dismissViewControllerAnimated(true, completion: {});//This is intended to dismiss the edit sceen.
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -17,6 +18,9 @@ class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBOutlet weak var soundPicker: UIPickerView!
     let pickerData = ["alarm22.wav","salmon.wav","fudale.wav"]
+    
+    var selectedSound = "alarm22.wav"
+    var alarmPlayer = AVAudioPlayer()
 
     //MARK: - Delegates and data sources
     //MARK: Data Sources
@@ -92,6 +96,19 @@ class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         //AlarmTableViewController.AlarmTableView.reloadData()
         self.navigationController?.popToRootViewControllerAnimated(true)
 
+    }
+    
+    @IBAction func playAlarmSound(sender: AnyObject) {
+        var alarmSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(selectedSound.stringByDeletingPathExtension, ofType: "wav")!)
+        var error:NSError?
+        alarmPlayer = AVAudioPlayer(contentsOfURL: alarmSound, error: &error)
+        alarmPlayer.numberOfLoops = 1
+        alarmPlayer.play()
+        var timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: Selector("stopPlaying"), userInfo: nil, repeats: false)
+    }
+    
+    func stopPlaying() {
+        alarmPlayer.stop()
     }
     
     override func viewDidLoad() {

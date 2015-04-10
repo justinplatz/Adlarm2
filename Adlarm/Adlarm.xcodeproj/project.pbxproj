@@ -18,7 +18,6 @@
 		097ED7C31AD5D3A1007F574F /* fudale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 097ED7C21AD5D3A1007F574F /* fudale.wav */; };
 		09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */; };
 		09B5B2411ABA1FA6004158E0 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B5B2401ABA1FA6004158E0 /* iAd.framework */; };
-		693D442C1AC3527D0036390B /* iphonesong.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 693D442B1AC3527D0036390B /* iphonesong.aiff */; };
 		6943CC0A1AAF896900D32AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943CC091AAF896900D32AD4 /* AppDelegate.swift */; };
 		6943CC0C1AAF896900D32AD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943CC0B1AAF896900D32AD4 /* ViewController.swift */; };
 		6943CC111AAF896900D32AD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6943CC101AAF896900D32AD4 /* Images.xcassets */; };
@@ -53,7 +52,6 @@
 		097ED7C21AD5D3A1007F574F /* fudale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fudale.wav; sourceTree = "<group>"; };
 		09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ADLARMLOGO.png; sourceTree = "<group>"; };
 		09B5B2401ABA1FA6004158E0 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		693D442B1AC3527D0036390B /* iphonesong.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = iphonesong.aiff; sourceTree = "<group>"; };
 		6943CC041AAF896900D32AD4 /* Adlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6943CC081AAF896900D32AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6943CC091AAF896900D32AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,7 +116,6 @@
 				09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */,
 				6943CC091AAF896900D32AD4 /* AppDelegate.swift */,
 				094D608B1ACB5F6400852BB7 /* CoreDataModel.xcdatamodeld */,
-				693D442B1AC3527D0036390B /* iphonesong.aiff */,
 				097ED7C01AD5D39B007F574F /* salmon.wav */,
 				097ED7C21AD5D3A1007F574F /* fudale.wav */,
 				0931A0461AC87EA5001E5BC3 /* alarm22.wav */,
@@ -250,7 +247,6 @@
 				097ED7C31AD5D3A1007F574F /* fudale.wav in Resources */,
 				6943CC2C1AAF898300D32AD4 /* ad-250x500.png in Resources */,
 				6943CC301AAF8A6800D32AD4 /* Main.storyboard in Resources */,
-				693D442C1AC3527D0036390B /* iphonesong.aiff in Resources */,
 				6943CC141AAF896900D32AD4 /* LaunchScreen.xib in Resources */,
 				6943CC111AAF896900D32AD4 /* Images.xcassets in Resources */,
 			);
