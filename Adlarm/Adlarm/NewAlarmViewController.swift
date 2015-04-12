@@ -115,6 +115,11 @@ class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         super.viewDidLoad()
         soundPicker.dataSource = self
         soundPicker.delegate = self
+        
+        
+        let logo = UIImage(named: "newAlarm.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
     }
     
     override func didReceiveMemoryWarning() {
@@ -123,5 +128,8 @@ class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     
-    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
 }

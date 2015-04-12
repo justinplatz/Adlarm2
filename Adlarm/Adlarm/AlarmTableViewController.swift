@@ -22,6 +22,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     var timer = NSTimer()
     var notificationID = String()
     
+    
     @IBOutlet var AlarmTableView: UITableView!
     
     @IBOutlet weak var editBarButton: UIBarButtonItem!
@@ -40,6 +41,16 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     override func viewDidAppear(animated: Bool) {
 
     }
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +73,18 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
         countdown.text = String(secondTimer)
         countdown.frame = CGRectMake(self.view.frame.size.width/1.33, self.view.frame.size.height/1.25, 25, 25)
+        
+        let logo = UIImage(named: "adlarmname.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        
+        
+        var navColor = UIColorFromRGB(0x08ACFB)
+        var textColor = UIColorFromRGB(0x006CA0)
+        navigationController?.navigationBar.barTintColor = navColor
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:  textColor ]
+
+
         
     }
     
@@ -97,6 +120,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     // MARK: UITableViewDataSource
     override func tableView(tableView: UITableView,
         numberOfRowsInSection section: Int) -> Int {
+            tableView.allowsSelection = false
             return alarmArray.count
     }
     
@@ -121,7 +145,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             (cell as AlarmTableViewCell).AlarmOnOffSwitch.on = alarmArray[indexPath.row].valueForKey("repeat") as Bool
             
             if(alarmArray[indexPath.row].valueForKey("repeat") as Bool == false){
-                cell.backgroundColor = UIColor.grayColor()
+                cell.backgroundColor = UIColor.lightGrayColor()
             }
             else{
                 cell.backgroundColor = UIColor.whiteColor()
@@ -145,7 +169,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         if AlarmTableView.editing{
             AlarmTableView.setEditing(false, animated: false);
             editBarButton.style = UIBarButtonItemStyle.Plain;
-            editBarButton.title = "Edit";
+            //editBarButton.title = "Edit";
             
             let visibleCells = tableView.visibleCells() as [AlarmTableViewCell]
             //let lastView = visibleCells[visibleCells.count - 1] as AlarmTableViewCell
@@ -161,7 +185,8 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         }
         else{
             AlarmTableView.setEditing(true, animated: true);
-            editBarButton.title = "Done";
+            //editBarButton.title = "Done";
+            
             editBarButton.style =  UIBarButtonItemStyle.Done;
             
             let visibleCells = tableView.visibleCells() as [AlarmTableViewCell]

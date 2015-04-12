@@ -20,6 +20,7 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBOutlet weak var editSoundPicker: UIPickerView!
     
+    @IBOutlet weak var EditNavBar: UINavigationBar!
     
     let pickerData = ["alarm22.wav","salmon.wav","fudale.wav"]
     
@@ -43,6 +44,14 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         println(selectedSound)
     }
     
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +71,16 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
                 break
             }
         }
+        
+        
+                
+        var navColor = UIColorFromRGB(0x08ACFB)
+        var textColor = UIColorFromRGB(0x006CA0)
+        EditNavBar.barTintColor = navColor
+        EditNavBar.titleTextAttributes = [NSForegroundColorAttributeName:  textColor ]
+        
+        
+
         
     }
 
@@ -148,6 +167,12 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
            self.dismissViewControllerAnimated(true, completion: {});//This is intended to dismiss the edit sceen.
 
 
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
     }
     
     

@@ -1,134 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Njm-gt-gpE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Njm-gt-gpE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Adlarm" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm is On" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEM-iM-FC3">
-                                <rect key="frame" x="51" y="504" width="228" height="44"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cNt-Mh-HG6">
-                                <rect key="frame" x="223" y="510" width="51" height="31"/>
-                                <connections>
-                                    <action selector="AlarmToggle:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Y4m-es-7Wc"/>
-                                </connections>
-                            </switch>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="MBE-9I-7rp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="separatorInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCellItem" textLabel="YIC-6I-N1y" rowHeight="50" style="IBUITableViewCellStyleDefault" id="4sD-lW-b6U">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4sD-lW-b6U" id="2NY-2j-YaD">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YIC-6I-N1y">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    </variation>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pyK-0x-w7q">
-                                <rect key="frame" x="0.0" y="340" width="320" height="162"/>
-                                <date key="date" timeIntervalSinceReferenceDate="446519011.66419899">
-                                    <!--2015-02-25 01:03:31 +0000-->
-                                </date>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Yy-hz-Dwv">
-                                <rect key="frame" x="122" y="314" width="77" height="30"/>
-                                <state key="normal" title="Set Time">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="scheduleReminder:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Ypx-Rk-5af"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-Ii-ig6">
-                                <rect key="frame" x="74" y="233" width="182" height="73"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="50"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your alarm is set to:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="csU-ad-rya">
-                                <rect key="frame" x="43" y="174" width="244" height="51"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j33-82-8S4">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                                <items>
-                                    <navigationItem title="Adlarm" id="DkI-ox-3zW">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="PiX-0Y-Q5t"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="pYK-ZY-66Q"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.93333339691162109" green="0.96862751245498657" blue="0.9803922176361084" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="MBE-9I-7rp" secondAttribute="trailing" id="7hQ-GH-1cf"/>
-                            <constraint firstItem="MBE-9I-7rp" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="eJL-lf-cVa"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="MBE-9I-7rp"/>
-                            </mask>
-                            <mask key="constraints">
-                                <exclude reference="7hQ-GH-1cf"/>
-                                <exclude reference="eJL-lf-cVa"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="MBE-9I-7rp"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="7hQ-GH-1cf"/>
-                                <include reference="eJL-lf-cVa"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="OnOffLabel" destination="MEM-iM-FC3" id="49e-uK-LwO"/>
-                        <outlet property="OnOffSwitch" destination="cNt-Mh-HG6" id="ftL-MQ-JVl"/>
-                        <outlet property="ShowTime" destination="AUc-Ii-ig6" id="CyL-5Q-ZpU"/>
-                        <outlet property="btnAction" destination="8Yy-hz-Dwv" id="knP-hp-dYi"/>
-                        <outlet property="datePicker" destination="pyK-0x-w7q" id="SXs-Tj-p1N"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="926" y="972"/>
-        </scene>
         <!--Alarm Table View Controller-->
         <scene sceneID="LXQ-Fr-S1y">
             <objects>
@@ -161,9 +36,9 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ce4-No-0f9">
-                                            <rect key="frame" x="238" y="39" width="36" height="36"/>
-                                            <state key="normal" image="settings.png">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ce4-No-0f9" userLabel="edit">
+                                            <rect key="frame" x="224" y="42" width="30" height="29.5"/>
+                                            <state key="normal" image="settingSmall.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -199,12 +74,14 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="OXi-tR-EU1">
-                        <barButtonItem key="leftBarButtonItem" title="Edit" id="i51-Y2-1Jh">
+                        <barButtonItem key="leftBarButtonItem" image="settingSmall.png" id="i51-Y2-1Jh">
+                            <color key="tintColor" red="0.0" green="0.3411764705882353" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="editAlarm:" destination="OHd-ir-38T" id="VBf-Kc-hhv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="CLi-g2-n9a">
+                        <barButtonItem key="rightBarButtonItem" image="add.png" id="CLi-g2-n9a">
+                            <color key="tintColor" red="0.0" green="0.3411764705882353" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="addName:" destination="OHd-ir-38T" id="vEB-16-6DJ"/>
                                 <segue destination="Nok-kY-Tmz" kind="push" id="6lb-Ln-URd"/>
@@ -220,7 +97,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFN-OI-YMV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="340"/>
+            <point key="canvasLocation" x="1034" y="509"/>
         </scene>
         <!--Edit Alarm-->
         <scene sceneID="kf0-Jx-eDj">
@@ -244,13 +121,13 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eVI-w7-2ox">
                                 <rect key="frame" x="0.0" y="21" width="320" height="44"/>
                                 <items>
-                                    <navigationItem title="Edit Alarm" id="Jex-BX-9cv">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OXV-Nf-oUZ">
+                                    <navigationItem id="Jex-BX-9cv">
+                                        <barButtonItem key="leftBarButtonItem" image="exit.png" id="OXV-Nf-oUZ">
                                             <connections>
                                                 <segue destination="Njm-gt-gpE" kind="show" id="SBc-yv-VLS"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="w1g-tY-HpY">
+                                        <barButtonItem key="rightBarButtonItem" image="done.png" id="w1g-tY-HpY">
                                             <connections>
                                                 <action selector="saveEditAlarm:" destination="DL2-hW-sLM" id="a0W-qw-Fgg"/>
                                             </connections>
@@ -272,6 +149,9 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEa-ZW-BNS">
                                 <rect key="frame" x="0.0" y="298" width="320" height="162"/>
                             </pickerView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="editalarm.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Nu-Oz-Pth">
+                                <rect key="frame" x="91" y="28" width="139" height="29"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -280,6 +160,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="EditNavBar" destination="eVI-w7-2ox" id="KX9-u1-7nK"/>
                         <outlet property="editAlarmDatePicker" destination="A8z-Ak-kzd" id="Ico-uc-Qoo"/>
                         <outlet property="editAlarmSaveButton" destination="w1g-tY-HpY" id="v3C-9G-BQF"/>
                         <outlet property="editAlarmTextField" destination="5VL-wn-NGS" id="Wgp-ox-MBA"/>
@@ -288,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YC1-WZ-WHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1374" y="-272"/>
+            <point key="canvasLocation" x="1439" y="202"/>
         </scene>
         <!--New Alarm View Controller-->
         <scene sceneID="h1b-0B-sNB">
@@ -336,12 +217,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="nGG-g4-V4z">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="BI9-tg-kDh">
+                        <barButtonItem key="leftBarButtonItem" image="exit.png" id="BI9-tg-kDh">
                             <connections>
                                 <segue destination="OHd-ir-38T" kind="show" id="cfc-eL-nVi"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="apy-Ld-gZt">
+                        <barButtonItem key="rightBarButtonItem" image="done.png" id="apy-Ld-gZt">
                             <connections>
                                 <action selector="addNewAlarm:" destination="Nok-kY-Tmz" id="HQL-C2-HT7"/>
                             </connections>
@@ -357,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAJ-ze-yRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1369" y="340"/>
+            <point key="canvasLocation" x="1439" y="858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fka-2E-8dY">
@@ -376,11 +257,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="axb-fB-PpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="396" y="340"/>
+            <point key="canvasLocation" x="434" y="494"/>
         </scene>
     </scenes>
     <resources>
-        <image name="settings.png" width="256" height="256"/>
+        <image name="add.png" width="30" height="30"/>
+        <image name="done.png" width="24" height="24"/>
+        <image name="editalarm.png" width="146" height="30"/>
+        <image name="exit.png" width="24" height="24"/>
+        <image name="settingSmall.png" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cfc-eL-nVi"/>

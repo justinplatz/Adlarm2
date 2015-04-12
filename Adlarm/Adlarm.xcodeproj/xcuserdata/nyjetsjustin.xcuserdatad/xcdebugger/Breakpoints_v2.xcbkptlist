@@ -67,13 +67,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Adlarm/EditAlarmViewController.swift"
-            timestampString = "450221403.581774"
+            timestampString = "450513245.749462"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
-            landmarkName = "saveName(_:)"
-            landmarkType = "5">
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "EditAlarmViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

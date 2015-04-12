@@ -20,6 +20,14 @@
 		097ED7C31AD5D3A1007F574F /* fudale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 097ED7C21AD5D3A1007F574F /* fudale.wav */; };
 		09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */; };
 		09B5B2411ABA1FA6004158E0 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B5B2401ABA1FA6004158E0 /* iAd.framework */; };
+		09C89EF21ADA3AEE00B34B68 /* adlarmname.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89EF11ADA3AEE00B34B68 /* adlarmname.png */; };
+		09C89EFC1ADA432D00B34B68 /* settingSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89EFB1ADA432D00B34B68 /* settingSmall.png */; };
+		09C89EFE1ADA43A400B34B68 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89EFD1ADA43A400B34B68 /* add.png */; };
+		09C89F001ADA446D00B34B68 /* newAlarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89EFF1ADA446D00B34B68 /* newAlarm.png */; };
+		09C89F041ADA453B00B34B68 /* exit.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89F031ADA453B00B34B68 /* exit.png */; };
+		09C89F061ADA457700B34B68 /* done.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89F051ADA457700B34B68 /* done.png */; };
+		09C89F081ADA466D00B34B68 /* edittext.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89F071ADA466D00B34B68 /* edittext.png */; };
+		09C89F0A1ADA472A00B34B68 /* editalarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89F091ADA472A00B34B68 /* editalarm.png */; };
 		6943CC0A1AAF896900D32AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943CC091AAF896900D32AD4 /* AppDelegate.swift */; };
 		6943CC0C1AAF896900D32AD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943CC0B1AAF896900D32AD4 /* ViewController.swift */; };
 		6943CC111AAF896900D32AD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6943CC101AAF896900D32AD4 /* Images.xcassets */; };
@@ -56,6 +64,14 @@
 		097ED7C21AD5D3A1007F574F /* fudale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fudale.wav; sourceTree = "<group>"; };
 		09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ADLARMLOGO.png; sourceTree = "<group>"; };
 		09B5B2401ABA1FA6004158E0 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		09C89EF11ADA3AEE00B34B68 /* adlarmname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adlarmname.png; sourceTree = "<group>"; };
+		09C89EFB1ADA432D00B34B68 /* settingSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingSmall.png; sourceTree = "<group>"; };
+		09C89EFD1ADA43A400B34B68 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		09C89EFF1ADA446D00B34B68 /* newAlarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newAlarm.png; sourceTree = "<group>"; };
+		09C89F031ADA453B00B34B68 /* exit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exit.png; sourceTree = "<group>"; };
+		09C89F051ADA457700B34B68 /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
+		09C89F071ADA466D00B34B68 /* edittext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edittext.png; sourceTree = "<group>"; };
+		09C89F091ADA472A00B34B68 /* editalarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editalarm.png; sourceTree = "<group>"; };
 		6943CC041AAF896900D32AD4 /* Adlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6943CC081AAF896900D32AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6943CC091AAF896900D32AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +133,15 @@
 			children = (
 				091A9C761AB0CD30007760AD /* adlarmicon.png */,
 				0952038E1AD86A6A007AFDAF /* settings.png */,
+				09C89EF11ADA3AEE00B34B68 /* adlarmname.png */,
 				6943CC2B1AAF898300D32AD4 /* ad-250x500.png */,
+				09C89F031ADA453B00B34B68 /* exit.png */,
+				09C89F091ADA472A00B34B68 /* editalarm.png */,
+				09C89EFD1ADA43A400B34B68 /* add.png */,
+				09C89EFB1ADA432D00B34B68 /* settingSmall.png */,
+				09C89F071ADA466D00B34B68 /* edittext.png */,
+				09C89F051ADA457700B34B68 /* done.png */,
+				09C89EFF1ADA446D00B34B68 /* newAlarm.png */,
 				095203901AD87406007AFDAF /* adlarmsplash.png */,
 				09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */,
 				6943CC091AAF896900D32AD4 /* AppDelegate.swift */,
@@ -248,15 +272,22 @@
 				0952038F1AD86A6A007AFDAF /* settings.png in Resources */,
 				6943CC2A1AAF897E00D32AD4 /* iphonesongw.wav in Resources */,
 				09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */,
+				09C89EFE1ADA43A400B34B68 /* add.png in Resources */,
+				09C89F081ADA466D00B34B68 /* edittext.png in Resources */,
 				0931A0471AC87EA5001E5BC3 /* alarm22.wav in Resources */,
 				091A9C771AB0CD30007760AD /* adlarmicon.png in Resources */,
+				09C89F001ADA446D00B34B68 /* newAlarm.png in Resources */,
 				097ED7C11AD5D39C007F574F /* salmon.wav in Resources */,
 				097ED7C31AD5D3A1007F574F /* fudale.wav in Resources */,
 				6943CC2C1AAF898300D32AD4 /* ad-250x500.png in Resources */,
+				09C89F0A1ADA472A00B34B68 /* editalarm.png in Resources */,
 				6943CC301AAF8A6800D32AD4 /* Main.storyboard in Resources */,
-				693D442C1AC3527D0036390B /* iphonesong.aiff in Resources */,
+				09C89F061ADA457700B34B68 /* done.png in Resources */,
+				09C89EF21ADA3AEE00B34B68 /* adlarmname.png in Resources */,
 				095203911AD87406007AFDAF /* adlarmsplash.png in Resources */,
 				6943CC141AAF896900D32AD4 /* LaunchScreen.xib in Resources */,
+				09C89EFC1ADA432D00B34B68 /* settingSmall.png in Resources */,
+				09C89F041ADA453B00B34B68 /* exit.png in Resources */,
 				6943CC111AAF896900D32AD4 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

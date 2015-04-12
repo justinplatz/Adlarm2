@@ -51,7 +51,7 @@ class AlarmTableViewCell: UITableViewCell {
         println("toggling")
         if(AlarmOnOffSwitch.on == false){
             println("disabling alarm")
-            self.backgroundColor = UIColor.grayColor()
+            self.backgroundColor = UIColor.lightGrayColor()
             deleteLocalNotification(AlarmNameLabel.text!)
             
             
