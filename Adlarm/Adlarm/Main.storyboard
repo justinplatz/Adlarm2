@@ -136,21 +136,21 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5VL-wn-NGS">
-                                <rect key="frame" x="86" y="260" width="218" height="30"/>
+                                <rect key="frame" x="84" y="258" width="220" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tay-WU-pDU">
-                                <rect key="frame" x="16" y="258" width="70" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alarmLabel.png" translatesAutoresizingMaskIntoConstraints="NO" id="qZy-pC-naq">
+                                <rect key="frame" x="16" y="260" width="60" height="25"/>
+                            </imageView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEa-ZW-BNS">
-                                <rect key="frame" x="0.0" y="298" width="320" height="162"/>
+                                <rect key="frame" x="84" y="293" width="220" height="162"/>
                             </pickerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="editalarm.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Nu-Oz-Pth">
                                 <rect key="frame" x="91" y="28" width="139" height="29"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sound.png" translatesAutoresizingMaskIntoConstraints="NO" id="Adw-tb-odI">
+                                <rect key="frame" x="16" y="361" width="60" height="25"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -191,22 +191,22 @@
                                 <locale key="locale" localeIdentifier="en_US_POSIX"/>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCQ-L0-31r">
-                                <rect key="frame" x="86" y="250" width="218" height="30"/>
+                                <rect key="frame" x="84" y="269" width="220" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXL-oM-bm9">
-                                <rect key="frame" x="16" y="248" width="70" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-63-Z4K">
-                                <rect key="frame" x="0.0" y="306" width="320" height="162"/>
+                                <rect key="frame" x="84" y="302" width="220" height="162"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aW-PK-Qps">
-                                <rect key="frame" x="89" y="466" width="142" height="48"/>
-                                <state key="normal" title="Test Alarm Sound">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alarmLabel.png" translatesAutoresizingMaskIntoConstraints="NO" id="83d-Ig-P3r">
+                                <rect key="frame" x="16" y="271" width="60" height="25"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sound.png" translatesAutoresizingMaskIntoConstraints="NO" id="V1q-Dw-QBv">
+                                <rect key="frame" x="16" y="370" width="60" height="25"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aW-PK-Qps">
+                                <rect key="frame" x="120" y="466" width="148" height="28"/>
+                                <state key="normal" image="preview.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -238,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAJ-ze-yRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="858"/>
+            <point key="canvasLocation" x="1439" y="839"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fka-2E-8dY">
@@ -262,10 +262,13 @@
     </scenes>
     <resources>
         <image name="add.png" width="30" height="30"/>
+        <image name="alarmLabel.png" width="600" height="300"/>
         <image name="done.png" width="24" height="24"/>
         <image name="editalarm.png" width="146" height="30"/>
         <image name="exit.png" width="24" height="24"/>
+        <image name="preview.png" width="1630" height="260"/>
         <image name="settingSmall.png" width="29" height="29"/>
+        <image name="sound.png" width="742" height="276"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="cfc-eL-nVi"/>

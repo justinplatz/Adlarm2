@@ -120,6 +120,19 @@ class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let logo = UIImage(named: "newAlarm.png")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
+        
+        
+        let borderAlpha : CGFloat = 0.7
+        let cornerRadius : CGFloat = 5.0
+        
+        testSoundButton.frame = CGRectMake(100, 100, 200, 40)
+        testSoundButton.setTitle("Get Started", forState: UIControlState.Normal)
+        testSoundButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        testSoundButton.backgroundColor = UIColor.clearColor()
+        testSoundButton.layer.borderWidth = 1.0
+        testSoundButton.layer.borderColor = UIColor(white: 1.0, alpha: borderAlpha).CGColor
+        testSoundButton.layer.cornerRadius = cornerRadius
+        
     }
     
     override func didReceiveMemoryWarning() {
