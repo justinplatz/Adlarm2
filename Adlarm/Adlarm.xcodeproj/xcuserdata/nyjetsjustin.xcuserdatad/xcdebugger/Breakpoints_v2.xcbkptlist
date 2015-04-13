@@ -17,6 +17,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Swift._fatalErrorMessage (Swift.StaticString, Swift.StaticString, Swift.StaticString, Swift.UInt) -&gt; ()"
                   moduleName = "libswiftCore.dylib"
+                  usesParentBreakpointCondition = "Yes"
                   offsetFromSymbolStart = "144">
                </Location>
             </Locations>
@@ -36,6 +37,7 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Swift._fatalErrorMessage (Swift.StaticString, Swift.StaticString, Swift.StaticString, Swift.UInt) -&gt; ()"
                   moduleName = "libswiftCore.dylib"
+                  usesParentBreakpointCondition = "Yes"
                   offsetFromSymbolStart = "160">
                </Location>
             </Locations>
@@ -55,25 +57,10 @@
                   continueAfterRunningActions = "No"
                   symbolName = "Swift._fatalErrorMessage (Swift.StaticString, Swift.StaticString, Swift.StaticString, Swift.UInt) -&gt; ()"
                   moduleName = "libswiftCore.dylib"
+                  usesParentBreakpointCondition = "Yes"
                   offsetFromSymbolStart = "148">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Adlarm/EditAlarmViewController.swift"
-            timestampString = "450513245.749462"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "EditAlarmViewController"
-            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

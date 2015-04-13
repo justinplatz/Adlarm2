@@ -62,11 +62,11 @@ class AlarmTableViewCell: UITableViewCell {
             var soundNsmo = String()
             for obj in alarmArray{
                 var nsmo = obj as NSManagedObject
-                var name = nsmo.valueForKey("label") as String
-                soundNsmo = nsmo.valueForKey("sound") as String
+                var name = nsmo.valueForKey("label") as! String
+                soundNsmo = nsmo.valueForKey("sound") as! String
 
                 if(name == AlarmNameLabel.text){
-                    date = nsmo.valueForKey("time") as NSDate
+                    date = nsmo.valueForKey("time") as! NSDate
                     break
                 }
             }
@@ -76,14 +76,14 @@ class AlarmTableViewCell: UITableViewCell {
             }
         }
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext!
         let fetchRequest = NSFetchRequest(entityName:"AlarmEntity")
         fetchRequest.predicate = NSPredicate(format: "label = %@", AlarmNameLabel.text!)
         var error: NSError?
         let fetchedResults =
         managedContext.executeFetchRequest(fetchRequest,
-            error: &error) as [NSManagedObject]?
+            error: &error) as! [NSManagedObject]?
         
         if let results = fetchedResults {
             var managedObject = results[0]

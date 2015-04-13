@@ -18,6 +18,7 @@
 		095203911AD87406007AFDAF /* adlarmsplash.png in Resources */ = {isa = PBXBuildFile; fileRef = 095203901AD87406007AFDAF /* adlarmsplash.png */; };
 		097ED7C11AD5D39C007F574F /* salmon.wav in Resources */ = {isa = PBXBuildFile; fileRef = 097ED7C01AD5D39B007F574F /* salmon.wav */; };
 		097ED7C31AD5D3A1007F574F /* fudale.wav in Resources */ = {isa = PBXBuildFile; fileRef = 097ED7C21AD5D3A1007F574F /* fudale.wav */; };
+		0985B4AF1ADB386500805BBE /* preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 0985B4AE1ADB386500805BBE /* preview.png */; };
 		09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */; };
 		09B5B2411ABA1FA6004158E0 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B5B2401ABA1FA6004158E0 /* iAd.framework */; };
 		09C89EF21ADA3AEE00B34B68 /* adlarmname.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89EF11ADA3AEE00B34B68 /* adlarmname.png */; };
@@ -30,7 +31,6 @@
 		09C89F0A1ADA472A00B34B68 /* editalarm.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89F091ADA472A00B34B68 /* editalarm.png */; };
 		09C89F0E1ADA4B7100B34B68 /* alarmLabel.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89F0D1ADA4B7100B34B68 /* alarmLabel.png */; };
 		09C89F101ADA4C2200B34B68 /* sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89F0F1ADA4C2200B34B68 /* sound.png */; };
-		09C89F141ADA4D3E00B34B68 /* preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C89F131ADA4D3E00B34B68 /* preview.png */; };
 		6943CC0A1AAF896900D32AD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943CC091AAF896900D32AD4 /* AppDelegate.swift */; };
 		6943CC0C1AAF896900D32AD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943CC0B1AAF896900D32AD4 /* ViewController.swift */; };
 		6943CC111AAF896900D32AD4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6943CC101AAF896900D32AD4 /* Images.xcassets */; };
@@ -65,6 +65,7 @@
 		095203901AD87406007AFDAF /* adlarmsplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adlarmsplash.png; sourceTree = "<group>"; };
 		097ED7C01AD5D39B007F574F /* salmon.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = salmon.wav; sourceTree = "<group>"; };
 		097ED7C21AD5D3A1007F574F /* fudale.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fudale.wav; sourceTree = "<group>"; };
+		0985B4AE1ADB386500805BBE /* preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preview.png; sourceTree = "<group>"; };
 		09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ADLARMLOGO.png; sourceTree = "<group>"; };
 		09B5B2401ABA1FA6004158E0 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		09C89EF11ADA3AEE00B34B68 /* adlarmname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adlarmname.png; sourceTree = "<group>"; };
@@ -77,7 +78,6 @@
 		09C89F091ADA472A00B34B68 /* editalarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editalarm.png; sourceTree = "<group>"; };
 		09C89F0D1ADA4B7100B34B68 /* alarmLabel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alarmLabel.png; sourceTree = "<group>"; };
 		09C89F0F1ADA4C2200B34B68 /* sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sound.png; sourceTree = "<group>"; };
-		09C89F131ADA4D3E00B34B68 /* preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preview.png; sourceTree = "<group>"; };
 		6943CC041AAF896900D32AD4 /* Adlarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Adlarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6943CC081AAF896900D32AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6943CC091AAF896900D32AD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -137,27 +137,8 @@
 		6943CC061AAF896900D32AD4 /* Adlarm */ = {
 			isa = PBXGroup;
 			children = (
-				091A9C761AB0CD30007760AD /* adlarmicon.png */,
-				0952038E1AD86A6A007AFDAF /* settings.png */,
-				09C89EF11ADA3AEE00B34B68 /* adlarmname.png */,
-				6943CC2B1AAF898300D32AD4 /* ad-250x500.png */,
-				09C89F031ADA453B00B34B68 /* exit.png */,
-				09C89F091ADA472A00B34B68 /* editalarm.png */,
-				09C89EFD1ADA43A400B34B68 /* add.png */,
-				09C89F0F1ADA4C2200B34B68 /* sound.png */,
-				09C89EFB1ADA432D00B34B68 /* settingSmall.png */,
-				09C89F071ADA466D00B34B68 /* edittext.png */,
-				09C89F131ADA4D3E00B34B68 /* preview.png */,
-				09C89F0D1ADA4B7100B34B68 /* alarmLabel.png */,
-				09C89F051ADA457700B34B68 /* done.png */,
-				09C89EFF1ADA446D00B34B68 /* newAlarm.png */,
-				095203901AD87406007AFDAF /* adlarmsplash.png */,
-				09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */,
 				6943CC091AAF896900D32AD4 /* AppDelegate.swift */,
 				094D608B1ACB5F6400852BB7 /* CoreDataModel.xcdatamodeld */,
-				097ED7C01AD5D39B007F574F /* salmon.wav */,
-				097ED7C21AD5D3A1007F574F /* fudale.wav */,
-				0931A0461AC87EA5001E5BC3 /* alarm22.wav */,
 				6943CC0B1AAF896900D32AD4 /* ViewController.swift */,
 				6943CC101AAF896900D32AD4 /* Images.xcassets */,
 				6943CC2F1AAF8A6800D32AD4 /* Main.storyboard */,
@@ -176,6 +157,25 @@
 			isa = PBXGroup;
 			children = (
 				6943CC081AAF896900D32AD4 /* Info.plist */,
+				091A9C761AB0CD30007760AD /* adlarmicon.png */,
+				0952038E1AD86A6A007AFDAF /* settings.png */,
+				0985B4AE1ADB386500805BBE /* preview.png */,
+				09C89EF11ADA3AEE00B34B68 /* adlarmname.png */,
+				6943CC2B1AAF898300D32AD4 /* ad-250x500.png */,
+				09C89F031ADA453B00B34B68 /* exit.png */,
+				09C89F091ADA472A00B34B68 /* editalarm.png */,
+				097ED7C01AD5D39B007F574F /* salmon.wav */,
+				097ED7C21AD5D3A1007F574F /* fudale.wav */,
+				0931A0461AC87EA5001E5BC3 /* alarm22.wav */,
+				09C89EFD1ADA43A400B34B68 /* add.png */,
+				09C89F0F1ADA4C2200B34B68 /* sound.png */,
+				09C89EFB1ADA432D00B34B68 /* settingSmall.png */,
+				09C89F071ADA466D00B34B68 /* edittext.png */,
+				09C89F0D1ADA4B7100B34B68 /* alarmLabel.png */,
+				09C89F051ADA457700B34B68 /* done.png */,
+				09C89EFF1ADA446D00B34B68 /* newAlarm.png */,
+				095203901AD87406007AFDAF /* adlarmsplash.png */,
+				09A78F401AB0A6F9005AE360 /* ADLARMLOGO.png */,
 				6943CC291AAF897E00D32AD4 /* iphonesongw.wav */,
 			);
 			name = "Supporting Files";
@@ -280,7 +280,7 @@
 			files = (
 				0952038F1AD86A6A007AFDAF /* settings.png in Resources */,
 				6943CC2A1AAF897E00D32AD4 /* iphonesongw.wav in Resources */,
-				09C89F141ADA4D3E00B34B68 /* preview.png in Resources */,
+				0985B4AF1ADB386500805BBE /* preview.png in Resources */,
 				09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */,
 				09C89EFE1ADA43A400B34B68 /* add.png in Resources */,
 				09C89F081ADA466D00B34B68 /* edittext.png in Resources */,
@@ -393,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -429,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -441,6 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Adlarm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -451,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Adlarm/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

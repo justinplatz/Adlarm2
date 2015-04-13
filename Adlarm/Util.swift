@@ -23,8 +23,8 @@ struct alarmClass{
 func deleteLocalNotification(label: String){
     var app:UIApplication = UIApplication.sharedApplication()
     for oneEvent in app.scheduledLocalNotifications {
-        var notification = oneEvent as UILocalNotification
-        let userInfoCurrent = notification.userInfo! as [String:String]
+        var notification = oneEvent as! UILocalNotification
+        let userInfoCurrent = notification.userInfo! as! [String:String]
         let uid = userInfoCurrent["id"]! as String
         if uid == label {
             //Cancelling local notification

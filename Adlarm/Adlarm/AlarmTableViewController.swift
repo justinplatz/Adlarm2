@@ -15,7 +15,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     
     var interAd = ADInterstitialAd()
     var interAdView: UIView = UIView()
-    var closeButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+    var closeButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
     var countdown = UILabel()
     var alarmPlayer = AVAudioPlayer()
     var secondTimer = 0
@@ -94,7 +94,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
 
         //1
         let appDelegate =
-        UIApplication.sharedApplication().delegate as AppDelegate
+        UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext!
         
@@ -106,7 +106,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
         let fetchedResults =
         managedContext.executeFetchRequest(fetchRequest,
-            error: &error) as [NSManagedObject]?
+            error: &error) as! [NSManagedObject]?
         
         if let results = fetchedResults {
             alarmArray = results
@@ -130,21 +130,21 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             
             let cell =
             tableView.dequeueReusableCellWithIdentifier("AlarmTableViewCell")
-                as UITableViewCell
+                as! UITableViewCell
             
             var dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "hh:mm a" //format style. Browse online to get a format that fits your needs.
             //var dateString = dateFormatter.stringFromDate(alarmArray[indexPath.row].time)
             println(indexPath.row)
-            var dateString = dateFormatter.stringFromDate(alarmArray[indexPath.row].valueForKey("time") as NSDate)
+            var dateString = dateFormatter.stringFromDate(alarmArray[indexPath.row].valueForKey("time") as! NSDate)
  
-            (cell as AlarmTableViewCell).AlarmTimeLabel.text = dateString
+            (cell as! AlarmTableViewCell).AlarmTimeLabel.text = dateString
             
-            (cell as AlarmTableViewCell).AlarmNameLabel.text = alarmArray[indexPath.row].valueForKey("label") as String?
+            (cell as! AlarmTableViewCell).AlarmNameLabel.text = alarmArray[indexPath.row].valueForKey("label") as! String?
 
-            (cell as AlarmTableViewCell).AlarmOnOffSwitch.on = alarmArray[indexPath.row].valueForKey("repeat") as Bool
+            (cell as! AlarmTableViewCell).AlarmOnOffSwitch.on = alarmArray[indexPath.row].valueForKey("repeat") as! Bool
             
-            if(alarmArray[indexPath.row].valueForKey("repeat") as Bool == false){
+            if(alarmArray[indexPath.row].valueForKey("repeat") as! Bool == false){
                 cell.backgroundColor = UIColor.lightGrayColor()
             }
             else{
@@ -164,14 +164,14 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
         let cell =
         tableView.dequeueReusableCellWithIdentifier("AlarmTableViewCell")
-            as UITableViewCell
+            as! UITableViewCell
 
         if AlarmTableView.editing{
             AlarmTableView.setEditing(false, animated: false);
             editBarButton.style = UIBarButtonItemStyle.Plain;
             //editBarButton.title = "Edit";
             
-            let visibleCells = tableView.visibleCells() as [AlarmTableViewCell]
+            let visibleCells = tableView.visibleCells() as! [AlarmTableViewCell]
             //let lastView = visibleCells[visibleCells.count - 1] as AlarmTableViewCell
 
             for i in 0..<visibleCells.count {
@@ -187,9 +187,19 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             AlarmTableView.setEditing(true, animated: true);
             //editBarButton.title = "Done";
             
+//            let buttonBack: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+//            buttonBack.frame = CGRectMake(0, 0, 40, 40)
+//            buttonBack.setImage(UIImage(named:"done.png"), forState: UIControlState.Normal)
+//            buttonBack.addTarget(self, action: "leftNavButtonClick:", forControlEvents: UIControlEvents.TouchUpInside)
+//            
+//            var leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: buttonBack)
+//            
+//            self.navigationItem.setLeftBarButtonItem(leftBarButtonItem, animated: false)
+
+
             editBarButton.style =  UIBarButtonItemStyle.Done;
             
-            let visibleCells = tableView.visibleCells() as [AlarmTableViewCell]
+            let visibleCells = tableView.visibleCells() as! [AlarmTableViewCell]
             //let lastView = visibleCells[visibleCells.count - 1] as AlarmTableViewCell
             
             for i in 0..<visibleCells.count {
@@ -202,16 +212,33 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
     }
     
+//    func leftNavButtonClick(sender:UIButton!)
+//    {
+//        self.navigationItem.setLeftBarButtonItem(editBarButton, animated: true)
+//    }
+    
     
 
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//
+//    }
+//    
+    
+
+    
+    
+
+    
+    // Update the data model according to edit actions delete or insert.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: (NSIndexPath!))
+    {
         switch editingStyle {
-        
+            
         case .Delete:
             // remove the deleted item from the model
-            deleteLocalNotification(alarmArray[indexPath.row].valueForKey("label") as String)
-            let appDel:AppDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            deleteLocalNotification(alarmArray[indexPath.row].valueForKey("label") as! String)
+            let appDel:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let context:NSManagedObjectContext = appDel.managedObjectContext!
             context.deleteObject(alarmArray[indexPath.row] as NSManagedObject)
             alarmArray.removeAtIndex(indexPath.row)
@@ -224,22 +251,12 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             return
             
         }
-    }
-    
-    
-
-    
-    
-
-    
-    // Update the data model according to edit actions delete or insert.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: (NSIndexPath!))
-    {
-        if editingStyle == UITableViewCellEditingStyle.Delete{
-            alarmArray.removeAtIndex(indexPath.row);
-            self.editAlarm(editBarButton);
-            tableView.reloadData();
-        }
+        
+//        if editingStyle == UITableViewCellEditingStyle.Delete{
+//            alarmArray.removeAtIndex(indexPath.row);
+//            self.editAlarm(editBarButton);
+//            tableView.reloadData();
+//        }
     }
 
     func setupNotificationSettings() {
@@ -300,7 +317,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
     //FUNCTIONS FOR SNOOZING
     func handleSnooze(notification: NSNotification){
         println("handling snooze")
-        notificationID = notification.userInfo!["id"] as String
+        notificationID = notification.userInfo!["id"] as! String
         secondTimer = 0
         countdown.text = String(secondTimer)
         loadAd()
@@ -354,9 +371,9 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
 
         for obj in alarmArray{
             var nsmo = obj as NSManagedObject
-            var name = nsmo.valueForKey("label") as String
+            var name = nsmo.valueForKey("label") as! String
             if(name ==  alarmName){
-                snoozeSound = nsmo.valueForKey("sound") as String
+                snoozeSound = nsmo.valueForKey("sound") as! String
                 break
             }
         }
@@ -371,6 +388,14 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
         
         UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
 
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
     }
 
 }

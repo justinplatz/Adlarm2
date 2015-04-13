@@ -10,11 +10,15 @@ import UIKit
 import CoreData
 import AVFoundation
 
-class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
     @IBOutlet weak var newAlarmDatePicker: UIDatePicker!
     
-    @IBOutlet weak var newAlarmLabelTextField: UITextField!
+    @IBOutlet weak var newAlarmLabelTextField: UITextField! = nil
+    //newAlarmLabelTextField.delegate=self
+
+    
+
     
     @IBOutlet weak var soundPicker: UIPickerView!
     let pickerData = ["alarm22.wav","salmon.wav","fudale.wav"]
@@ -45,7 +49,7 @@ class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     func saveName(alarmObject: alarmClass) {
         //1
         let appDelegate =
-        UIApplication.sharedApplication().delegate as AppDelegate
+        UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext!
         
@@ -126,13 +130,19 @@ class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let cornerRadius : CGFloat = 5.0
         
         testSoundButton.frame = CGRectMake(100, 100, 200, 40)
-        testSoundButton.setTitle("Get Started", forState: UIControlState.Normal)
+        testSoundButton.setTitle("", forState: UIControlState.Normal)
         testSoundButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         testSoundButton.backgroundColor = UIColor.clearColor()
-        testSoundButton.layer.borderWidth = 1.0
+        testSoundButton.layer.borderWidth = 0
         testSoundButton.layer.borderColor = UIColor(white: 1.0, alpha: borderAlpha).CGColor
         testSoundButton.layer.cornerRadius = cornerRadius
         
+        newAlarmLabelTextField.delegate=self
+        
+
+
+        
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -141,8 +151,17 @@ class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        self.view.endEditing(true)
+    func textFieldShouldReturn(textField: UITextField!) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+    override func shouldAutorotate() -> Bool {
         return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
     }
 }

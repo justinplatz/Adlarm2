@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate, ADInterstitialAdDel
     
     var interAd = ADInterstitialAd()
     var interAdView: UIView = UIView()
-    var closeButton = UIButton.buttonWithType(UIButtonType.System) as UIButton
+    var closeButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
     var countdown = UILabel()
     
     @IBOutlet weak var btnAction: UIButton!

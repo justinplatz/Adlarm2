@@ -10,11 +10,11 @@ import UIKit
 import CoreData
 
 
-class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
 
     @IBOutlet weak var editAlarmDatePicker: UIDatePicker!
     
-    @IBOutlet weak var editAlarmTextField: UITextField!
+    @IBOutlet weak var editAlarmTextField: UITextField! = nil
     
     @IBOutlet weak var editAlarmSaveButton: UIBarButtonItem!
     
@@ -61,15 +61,18 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         
         for obj in alarmArray{
             var nsmo = obj as NSManagedObject
-            var name = nsmo.valueForKey("label") as String
+            var name = nsmo.valueForKey("label") as! String
             if(name == labelToEdit){
-                editAlarmDatePicker.date = nsmo.valueForKey("time") as NSDate
-                editAlarmTextField.text = nsmo.valueForKey("label") as String
-                selectedSound = nsmo.valueForKey("sound") as String!
+                editAlarmDatePicker.date = nsmo.valueForKey("time") as! NSDate
+                editAlarmTextField.text = nsmo.valueForKey("label") as! String
+                selectedSound = nsmo.valueForKey("sound") as! String!
                 var rowToGet = find(pickerData, selectedSound!)!
                 editSoundPicker.selectRow(rowToGet, inComponent: 0, animated: true)
                 break
             }
+            
+            editAlarmTextField.delegate=self
+
         }
         
         
@@ -105,51 +108,20 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     }
     
     
-    
-    /*func saveName(alarmObject: alarmClass) {
-        //1
-        let appDelegate =
-        UIApplication.sharedApplication().delegate as AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext!
-        
-        //2
-        let entity =  NSEntityDescription.entityForName("AlarmEntity",
-            inManagedObjectContext:
-            managedContext)
-        
-        let alarm = NSManagedObject(entity: entity!,
-            insertIntoManagedObjectContext:managedContext)
-        
-        //3
-        alarm.setValue(alarmObject.time, forKey: "time")
-        alarm.setValue(alarmObject.label, forKey: "label")
-        alarm.setValue(alarmObject.repeat, forKey: "repeat")
-        alarm.setValue(alarmObject.sound, forKey: "sound")
-        
-        //4
-        var error: NSError?
-        if !managedContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
-        }
-        //5
-        alarmArray.append(alarm)
-    }*/
-    
     @IBAction func saveEditAlarm(sender: AnyObject) {
         
         var textField = editAlarmTextField.text
         var date = editAlarmDatePicker.date
         //var newAlarm = alarmClass(time: date, label: textField, repeat: true, sound: selectedSound)
 
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             let managedContext = appDelegate.managedObjectContext!
             let fetchRequest = NSFetchRequest(entityName:"AlarmEntity")
             fetchRequest.predicate = NSPredicate(format: "label = %@", labelToEdit)
             var error: NSError?
             let fetchedResults =
             managedContext.executeFetchRequest(fetchRequest,
-                error: &error) as [NSManagedObject]?
+                error: &error) as! [NSManagedObject]?
             if let results = fetchedResults {
                 var managedObject = results[0]
                 managedObject.setValue(date, forKey: "time")
@@ -173,6 +145,14 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     {
         textField.resignFirstResponder()
         return true;
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return UIInterfaceOrientation.Portrait.rawValue
     }
     
     

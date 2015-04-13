@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Njm-gt-gpE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Njm-gt-gpE">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <scenes>
         <!--Alarm Table View Controller-->
@@ -19,13 +19,27 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="239-2B-zQN">
-                                            <rect key="frame" x="27" y="17" width="189" height="59"/>
+                                            <rect key="frame" x="8" y="17" width="208" height="59"/>
                                             <attributedString key="attributedText">
-                                                <fragment content="00:00">
+                                                <fragment content="12">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="40" name="Futura-Medium"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content=":">
                                                     <attributes>
                                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="40" name="Futura-Medium"/>
                                                         <font key="NSOriginalFont" size="40" name="Futura-Medium"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                                <fragment content="12 PM">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="40" name="Futura-Medium"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                                     </attributes>
                                                 </fragment>
@@ -38,12 +52,6 @@
                                                 <action selector="AlarmToggle:" destination="zSF-aS-OlH" eventType="valueChanged" id="kal-dY-xOj"/>
                                             </connections>
                                         </switch>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUq-oW-RLf">
-                                            <rect key="frame" x="27" y="76" width="260" height="21"/>
-                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ce4-No-0f9" userLabel="edit">
                                             <rect key="frame" x="224" y="42" width="30" height="29.5"/>
                                             <state key="normal" image="settingSmall.png">
@@ -60,6 +68,12 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUq-oW-RLf">
+                                            <rect key="frame" x="8" y="79" width="260" height="21"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <variation key="default">
                                         <mask key="subviews">
@@ -120,7 +134,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="A8z-Ak-kzd">
-                                <rect key="frame" x="0.0" y="65" width="320" height="162"/>
+                                <rect key="frame" x="16" y="76" width="288" height="150"/>
                                 <date key="date" timeIntervalSinceReferenceDate="449530094.99041998">
                                     <!--2015-03-31 21:28:14 +0000-->
                                 </date>
@@ -143,23 +157,29 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5VL-wn-NGS">
-                                <rect key="frame" x="84" y="258" width="220" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alarmLabel.png" translatesAutoresizingMaskIntoConstraints="NO" id="qZy-pC-naq">
-                                <rect key="frame" x="16" y="260" width="60" height="25"/>
-                            </imageView>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iEa-ZW-BNS">
-                                <rect key="frame" x="84" y="293" width="220" height="162"/>
+                                <rect key="frame" x="16" y="394" width="288" height="149"/>
                             </pickerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="editalarm.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Nu-Oz-Pth">
                                 <rect key="frame" x="91" y="28" width="139" height="29"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sound.png" translatesAutoresizingMaskIntoConstraints="NO" id="Adw-tb-odI">
-                                <rect key="frame" x="16" y="361" width="60" height="25"/>
+                                <rect key="frame" x="133" y="373" width="55" height="28"/>
                             </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uU-i0-dxm">
+                                <rect key="frame" x="0.0" y="235" width="320" height="121"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alarmLabel.png" translatesAutoresizingMaskIntoConstraints="NO" id="1u9-Vj-83E">
+                                        <rect key="frame" x="135" y="16" width="50" height="25"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5VL-wn-NGS">
+                                        <rect key="frame" x="8" y="56" width="304" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1215686275" green="0.65098039220000004" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -177,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YC1-WZ-WHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="202"/>
+            <point key="canvasLocation" x="1768" y="839"/>
         </scene>
         <!--New Alarm View Controller-->
         <scene sceneID="h1b-0B-sNB">
@@ -192,28 +212,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="XKg-dh-Bru">
-                                <rect key="frame" x="0.0" y="64" width="320" height="162"/>
+                                <rect key="frame" x="16" y="76" width="288" height="150"/>
                                 <date key="date" timeIntervalSinceReferenceDate="449530094.99041998">
                                     <!--2015-03-31 21:28:14 +0000-->
                                 </date>
                                 <locale key="locale" localeIdentifier="en_US_POSIX"/>
                             </datePicker>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCQ-L0-31r">
-                                <rect key="frame" x="84" y="269" width="220" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U1h-h3-QqT">
+                                <rect key="frame" x="0.0" y="234" width="320" height="121"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FCQ-L0-31r">
+                                        <rect key="frame" x="8" y="58" width="304" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alarmLabel.png" translatesAutoresizingMaskIntoConstraints="NO" id="83d-Ig-P3r">
+                                        <rect key="frame" x="135" y="16" width="50" height="25"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.65098039215686276" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Y0-63-Z4K">
-                                <rect key="frame" x="84" y="302" width="220" height="162"/>
+                                <rect key="frame" x="16" y="393" width="288" height="149"/>
                             </pickerView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="alarmLabel.png" translatesAutoresizingMaskIntoConstraints="NO" id="83d-Ig-P3r">
-                                <rect key="frame" x="16" y="271" width="60" height="25"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sound.png" translatesAutoresizingMaskIntoConstraints="NO" id="V1q-Dw-QBv">
-                                <rect key="frame" x="16" y="370" width="60" height="25"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aW-PK-Qps">
-                                <rect key="frame" x="120" y="466" width="148" height="28"/>
+                                <rect key="frame" x="16" y="457" width="37" height="31"/>
                                 <state key="normal" image="preview.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -221,8 +244,11 @@
                                     <action selector="playAlarmSound:" destination="Nok-kY-Tmz" eventType="touchUpInside" id="V6f-w6-jFd"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sound.png" translatesAutoresizingMaskIntoConstraints="NO" id="BzW-a3-OSm">
+                                <rect key="frame" x="133" y="373" width="55" height="28"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="nGG-g4-V4z">
                         <barButtonItem key="leftBarButtonItem" image="exit.png" id="BI9-tg-kDh">
@@ -267,6 +293,23 @@
             </objects>
             <point key="canvasLocation" x="434" y="494"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="mR4-hF-NXr">
+            <objects>
+                <viewController id="IRs-X1-qNH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="clL-HV-GSv"/>
+                        <viewControllerLayoutGuide type="bottom" id="XrO-FL-5FH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Pw-Eg-Dk0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v3d-uu-eP2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
     </scenes>
     <resources>
         <image name="add.png" width="30" height="30"/>
@@ -274,7 +317,7 @@
         <image name="done.png" width="24" height="24"/>
         <image name="editalarm.png" width="146" height="30"/>
         <image name="exit.png" width="24" height="24"/>
-        <image name="preview.png" width="1630" height="260"/>
+        <image name="preview.png" width="30" height="30"/>
         <image name="settingSmall.png" width="29" height="29"/>
         <image name="sound.png" width="742" height="276"/>
     </resources>
