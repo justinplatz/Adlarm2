@@ -22,7 +22,7 @@ class EditAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     
     @IBOutlet weak var EditNavBar: UINavigationBar!
     
-    let pickerData = ["alarm22.wav","salmon.wav","fudale.wav"]
+    let pickerData = ["Classic","Bells","Phone"]
     
     var selectedSound: String?
     

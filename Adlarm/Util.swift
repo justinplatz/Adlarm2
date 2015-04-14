@@ -46,7 +46,7 @@ func fixNotificationDate(dateToFix: NSDate) -> NSDate {
 
 func scheduleLocalNotification(date: NSDate, uid: String, sound: String) {
     var localNotification = UILocalNotification()
-    localNotification.soundName = sound
+    localNotification.soundName = sound + ".wav"
     localNotification.fireDate = fixNotificationDate(date)
     localNotification.repeatInterval = NSCalendarUnit.CalendarUnitDay
     localNotification.alertBody = uid

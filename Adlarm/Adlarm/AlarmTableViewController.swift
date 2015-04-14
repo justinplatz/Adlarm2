@@ -378,7 +378,7 @@ class AlarmTableViewController: UITableViewController, UITableViewDataSource, AD
             }
         }
         
-        localNotification.soundName = snoozeSound
+        localNotification.soundName = snoozeSound + ".wav"
         
         localNotification.fireDate = fixNotificationDate(NSDate(timeIntervalSinceNow: 60))
         localNotification.alertBody = "Hey, Wake Up!"

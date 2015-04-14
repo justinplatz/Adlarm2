@@ -21,9 +21,9 @@ class NewAlarmViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     
     @IBOutlet weak var soundPicker: UIPickerView!
-    let pickerData = ["alarm22.wav","salmon.wav","fudale.wav"]
+    let pickerData = ["Classic","Bells","Phone"]
     
-    var selectedSound = "alarm22.wav"
+    var selectedSound = "alarm22"
     var alarmPlayer = AVAudioPlayer()
 
     //MARK: - Delegates and data sources

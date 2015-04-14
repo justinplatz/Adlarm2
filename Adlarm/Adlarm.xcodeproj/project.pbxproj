@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09138C121ADC34A200928145 /* CustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09138C111ADC34A200928145 /* CustomSwitch.swift */; };
 		0919CB521ACDDF3600CA7A44 /* EditAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0919CB511ACDDF3600CA7A44 /* EditAlarmViewController.swift */; };
 		091A9C771AB0CD30007760AD /* adlarmicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 091A9C761AB0CD30007760AD /* adlarmicon.png */; };
-		0931A0471AC87EA5001E5BC3 /* alarm22.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0931A0461AC87EA5001E5BC3 /* alarm22.wav */; };
+		0931A0471AC87EA5001E5BC3 /* Classic.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0931A0461AC87EA5001E5BC3 /* Classic.wav */; };
+		094661DF1ADDA30D00947F51 /* Phone.wav in Resources */ = {isa = PBXBuildFile; fileRef = 094661DE1ADDA30D00947F51 /* Phone.wav */; };
+		094661E11ADDA31300947F51 /* Bells.wav in Resources */ = {isa = PBXBuildFile; fileRef = 094661E01ADDA31300947F51 /* Bells.wav */; };
 		094D60831ACB47FC00852BB7 /* AlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D60821ACB47FC00852BB7 /* AlarmTableViewController.swift */; };
 		094D60851ACB49A300852BB7 /* NewAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D60841ACB49A300852BB7 /* NewAlarmViewController.swift */; };
 		094D60871ACB4BEA00852BB7 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094D60861ACB4BEA00852BB7 /* AlarmTableViewCell.swift */; };
@@ -54,9 +57,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09138C111ADC34A200928145 /* CustomSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSwitch.swift; sourceTree = "<group>"; };
 		0919CB511ACDDF3600CA7A44 /* EditAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAlarmViewController.swift; sourceTree = "<group>"; };
 		091A9C761AB0CD30007760AD /* adlarmicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adlarmicon.png; sourceTree = "<group>"; };
-		0931A0461AC87EA5001E5BC3 /* alarm22.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = alarm22.wav; sourceTree = "<group>"; };
+		0931A0461AC87EA5001E5BC3 /* Classic.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Classic.wav; sourceTree = "<group>"; };
+		094661DE1ADDA30D00947F51 /* Phone.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Phone.wav; sourceTree = "<group>"; };
+		094661E01ADDA31300947F51 /* Bells.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Bells.wav; sourceTree = "<group>"; };
 		094D60821ACB47FC00852BB7 /* AlarmTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewController.swift; sourceTree = "<group>"; };
 		094D60841ACB49A300852BB7 /* NewAlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAlarmViewController.swift; sourceTree = "<group>"; };
 		094D60861ACB4BEA00852BB7 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
@@ -141,6 +147,7 @@
 				094D608B1ACB5F6400852BB7 /* CoreDataModel.xcdatamodeld */,
 				6943CC0B1AAF896900D32AD4 /* ViewController.swift */,
 				6943CC101AAF896900D32AD4 /* Images.xcassets */,
+				09138C111ADC34A200928145 /* CustomSwitch.swift */,
 				6943CC2F1AAF8A6800D32AD4 /* Main.storyboard */,
 				69E6F1B21AD4A0FC00E84825 /* Util.swift */,
 				0919CB511ACDDF3600CA7A44 /* EditAlarmViewController.swift */,
@@ -160,13 +167,15 @@
 				091A9C761AB0CD30007760AD /* adlarmicon.png */,
 				0952038E1AD86A6A007AFDAF /* settings.png */,
 				0985B4AE1ADB386500805BBE /* preview.png */,
+				094661E01ADDA31300947F51 /* Bells.wav */,
+				094661DE1ADDA30D00947F51 /* Phone.wav */,
 				09C89EF11ADA3AEE00B34B68 /* adlarmname.png */,
 				6943CC2B1AAF898300D32AD4 /* ad-250x500.png */,
 				09C89F031ADA453B00B34B68 /* exit.png */,
 				09C89F091ADA472A00B34B68 /* editalarm.png */,
 				097ED7C01AD5D39B007F574F /* salmon.wav */,
 				097ED7C21AD5D3A1007F574F /* fudale.wav */,
-				0931A0461AC87EA5001E5BC3 /* alarm22.wav */,
+				0931A0461AC87EA5001E5BC3 /* Classic.wav */,
 				09C89EFD1ADA43A400B34B68 /* add.png */,
 				09C89F0F1ADA4C2200B34B68 /* sound.png */,
 				09C89EFB1ADA432D00B34B68 /* settingSmall.png */,
@@ -284,7 +293,7 @@
 				09A78F411AB0A6F9005AE360 /* ADLARMLOGO.png in Resources */,
 				09C89EFE1ADA43A400B34B68 /* add.png in Resources */,
 				09C89F081ADA466D00B34B68 /* edittext.png in Resources */,
-				0931A0471AC87EA5001E5BC3 /* alarm22.wav in Resources */,
+				0931A0471AC87EA5001E5BC3 /* Classic.wav in Resources */,
 				091A9C771AB0CD30007760AD /* adlarmicon.png in Resources */,
 				09C89F001ADA446D00B34B68 /* newAlarm.png in Resources */,
 				09C89F0E1ADA4B7100B34B68 /* alarmLabel.png in Resources */,
@@ -293,6 +302,7 @@
 				6943CC2C1AAF898300D32AD4 /* ad-250x500.png in Resources */,
 				09C89F0A1ADA472A00B34B68 /* editalarm.png in Resources */,
 				6943CC301AAF8A6800D32AD4 /* Main.storyboard in Resources */,
+				094661E11ADDA31300947F51 /* Bells.wav in Resources */,
 				09C89F061ADA457700B34B68 /* done.png in Resources */,
 				09C89EF21ADA3AEE00B34B68 /* adlarmname.png in Resources */,
 				095203911AD87406007AFDAF /* adlarmsplash.png in Resources */,
@@ -301,6 +311,7 @@
 				09C89F041ADA453B00B34B68 /* exit.png in Resources */,
 				6943CC111AAF896900D32AD4 /* Images.xcassets in Resources */,
 				09C89F101ADA4C2200B34B68 /* sound.png in Resources */,
+				094661DF1ADDA30D00947F51 /* Phone.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +331,7 @@
 			files = (
 				094D60871ACB4BEA00852BB7 /* AlarmTableViewCell.swift in Sources */,
 				6943CC0C1AAF896900D32AD4 /* ViewController.swift in Sources */,
+				09138C121ADC34A200928145 /* CustomSwitch.swift in Sources */,
 				0919CB521ACDDF3600CA7A44 /* EditAlarmViewController.swift in Sources */,
 				69E6F1B31AD4A0FC00E84825 /* Util.swift in Sources */,
 				094D608D1ACB5F6400852BB7 /* CoreDataModel.xcdatamodeld in Sources */,
